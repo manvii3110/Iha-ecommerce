@@ -62,5 +62,6 @@ module.exports = {
 			filename: "../css/[name].css",
 			chunkFilename: "[id].css",
 		}),
+		require("@tailwindcss/forms"),
 	],
 };
