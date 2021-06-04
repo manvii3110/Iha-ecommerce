@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'frontend'
+    'frontend',
+    'backend'
 ]
 
 MIDDLEWARE = [
@@ -101,6 +102,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = "backend.User"
+
+# LOGIN_URL = "frontend:signIn_View"
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
