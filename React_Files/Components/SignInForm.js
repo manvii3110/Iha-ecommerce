@@ -4,20 +4,72 @@ import { LockClosedIcon } from "@heroicons/react/solid";
 require("../static/index.scss");
 
 export default function SignInForm() {
+	// This will fetch csrf token from request headers
+	function getCookie(name) {
+		let cookieValue = null;
+		if (document.cookie && document.cookie !== "") {
+			const cookies = document.cookie.split(";");
+			for (let i = 0; i < cookies.length; i++) {
+				const cookie = cookies[i].trim();
+				// Does this cookie string begin with the name we want?
+				if (cookie.substring(0, name.length + 1) === name + "=") {
+					cookieValue = decodeURIComponent(
+						cookie.substring(name.length + 1),
+					);
+					break;
+				}
+			}
+		}
+		return cookieValue;
+	}
+	const csrftoken = getCookie("csrftoken");
+
+	const handleSignInBtnClick = () => {
+		let data = {};
+		document
+			.querySelectorAll("#SignInForm input")
+			.forEach((e) => (data[e.name] = e.value));
+
+		// fetching data from server
+		fetch("./api/signin", {
+			method: "POST",
+			body: JSON.stringify(data),
+			headers: { "X-CSRFToken": csrftoken },
+		})
+			.then((res) => res.JSON)
+			.then((d) => {
+				console.log(d);
+
+				StartInput(restorePoint);
+				CleanForm();
+			})
+			.catch((error) => {
+				// Consoling the error
+				console.log(error);
+
+				StartInput(restorePoint);
+			});
+	};
+
 	return (
 		<div className='min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8'>
 			<div className='max-w-md w-full space-y-8'>
 				<div>
 					<img
-						className='mx-auto h-12 w-auto'
-						src='./static/frontend/img/iha logo.png'
+						className='mx-auto h-16 sm:h-24 w-auto'
+						src='./static/frontend/img/iha icon.png'
 						alt='Ecommerce'
 					/>
 					<h2 className='mt-6 text-center text-3xl font-extrabold text-gray-900'>
 						Sign in to your account
 					</h2>
 				</div>
-				<form className='mt-8 space-y-6' action='#' method='POST'>
+				<form
+					id='SignInForm'
+					className='mt-8 space-y-6'
+					action='#'
+					method='POST'
+				>
 					<input type='hidden' name='remember' defaultValue='true' />
 					<div className='rounded-md shadow-sm -space-y-px'>
 						<div>
@@ -80,6 +132,7 @@ export default function SignInForm() {
 						<button
 							type='submit'
 							className='group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+							onClick={() => handleSignInBtnClick()}
 						>
 							<span className='absolute left-0 inset-y-0 flex items-center pl-3'>
 								<LockClosedIcon
