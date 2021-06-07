@@ -56,9 +56,9 @@ export default function SignInForm() {
 			<div className='max-w-md w-full space-y-8'>
 				<div>
 					<img
-						className='mx-auto h-16 sm:h-24 w-auto'
-						src='./static/frontend/img/iha icon.png'
-						alt='Ecommerce'
+						className='filter drop-shadow-lg mx-auto h-16 sm:h-24 w-auto'
+						src='./static/frontend/img/ihaLogo.svg'
+						alt='Iha Ecommerce'
 					/>
 					<h2 className='mt-6 text-center text-3xl font-extrabold text-gray-900'>
 						Sign in to your account

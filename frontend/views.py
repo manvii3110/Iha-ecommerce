@@ -15,7 +15,7 @@ def loadFile(request, filename = 'App'):
 
 
 def index(request):
-    return loadFile(request, filename='App')
+    return loadFile(request, filename='Home')
 
 
 def signInView(request):
