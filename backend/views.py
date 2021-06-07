@@ -34,26 +34,29 @@ from django.http import JsonResponse
 def signIn(request):
     if request.method == "POST":
         
-        # Attempt to sign user in
-        username = request.POST["username"]
-        password = request.POST["password"]
-        user = authenticate(request, username=username, password=password)
+        # converting request data from json to object
+        data = json.loads(request.body)
+        email = data["email"]
+        password = data["password"]
 
-        # Check if authentication successful
-        if user is not None:
-            login(request, user)
-
-            # If user want is redirected from some page like dashboard
-            if "next" in request.POST:
-                return redirect(request.POST["next"])
+        # Checking if the email is correct
+        user = User.objects.filter(email=email)
+        if len(user) != 0:
+            user = authenticate(request, username = user[0].username, password=password)
+            
+            # Logging user in, if password is correct
+            if user is not None:
+                login(request, user)
+                return JsonResponse({"authenticated":True}, status=200)
             else:
-                return HttpResponseRedirect(reverse("frontend:index"))
+                return JsonResponse({"authenticated":False, "error": "Wrong Password"}, status=404)
+
+        # This will run if was no user found with that email address
         else:
-            return render(request, "frontend/signin.html", {
-                "message": "Invalid username and/or password."
-            })
+            return JsonResponse({"authenticated":False, "error": "Email not found"}, status=404)
+
     else:
-        return HttpResponseRedirect(reverse("frontend:signIn_View"))            
+        return HttpResponseRedirect(reverse("frontend:signInView"))            
 
 
 # This will signOut the user
