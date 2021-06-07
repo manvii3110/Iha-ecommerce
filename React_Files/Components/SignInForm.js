@@ -67,7 +67,10 @@ export default function SignInForm() {
 				<form
 					id='SignInForm'
 					className='mt-8 space-y-6'
-					action='#'
+					onSubmit={(e) => {
+						e.preventDefault();
+						SignIn();
+					}}
 					method='POST'
 				>
 					<input type='hidden' name='remember' defaultValue='true' />
