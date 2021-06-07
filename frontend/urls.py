@@ -1,7 +1,17 @@
-from django.urls import path
+from django.urls import path, re_path
 from . import views
 
+# For favicon
+from django.views.generic.base import RedirectView
+favicon_view = RedirectView.as_view(url='/static/frontend/img/ihaIcon.svg', permanent=True)
+
+
+app_name = "frontend"
+
 urlpatterns = [
+    # For favicon
+    re_path(r'^favicon\.ico$', favicon_view),
+
     path('', views.index),
-    path('signin', views.signInView)
+    path('signin', views.signInView)  
 ]
