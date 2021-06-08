@@ -47,16 +47,16 @@ def signIn(request):
             # Logging user in, if password is correct
             if user is not None:
                 login(request, user)
-                return JsonResponse({"authenticated":True}, status=200)
+                return JsonResponse({"authenticated":True}, status=202)
             else:
-                return JsonResponse({"authenticated":False, "error": "Wrong Password"}, status=404)
+                return JsonResponse({"authenticated":False, "error": "Wrong Password"}, status=401)
 
         # This will run if was no user found with that email address
         else:
             return JsonResponse({"authenticated":False, "error": "Email not found"}, status=404)
 
     else:
-        return HttpResponseRedirect(reverse("frontend:signInView"))            
+        return HttpResponseRedirect(reverse("frontend:signInView"))              
 
 
 # This will signOut the user
@@ -74,8 +74,7 @@ def check_authentication_status(request):
                              "username" : request.user.username,
                              "email": request.user.email,
                              "firstName": request.user.first_name,
-                             "lastName": request.user.last_name,
-                             "designation":request.user.get_designation_display()} , status=200)
+                             "lastName": request.user.last_name} , status=200)
     else:
         return JsonResponse({"authenticated" : False} , status=200)
 

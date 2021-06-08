@@ -4,20 +4,19 @@ import ReactDOM from "react-dom";
 require("./static/index.scss");
 
 const Home = () => {
-	const [username, setUsername] = useState("world");
+	const [username, setName] = useState("You Need to Sign in");
 
 	useEffect(() => {
-		fetch("./account/check_status")
-			.then((res) => res.json())
+		fetch("./api/account/check_status")
+			.then((d) => d.json())
 			.then((data) => {
-				setUsername(data.username);
+				setName(data.username);
+				console.log(data);
 			});
-	});
-
+	}, []);
 	return (
 		<div>
-			This is home page
-			<h1 className='font-bold'>Hi, {username}</h1>
+			<h1 class='font-bold text-7xl text-center mx-5'>Hi, {username}</h1>
 		</div>
 	);
 };
