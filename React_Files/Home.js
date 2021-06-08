@@ -10,7 +10,9 @@ const Home = () => {
 		fetch("./api/account/check_status")
 			.then((d) => d.json())
 			.then((data) => {
-				setName(data.username);
+				if (data.authenticated) {
+					setName(data.username);
+				}
 				console.log(data);
 			});
 	}, []);
