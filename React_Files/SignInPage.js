@@ -57,7 +57,7 @@ const SignInForm = () => {
 	const [inputBorderClass, setInputBorderClass] = useState("border-gray-300");
 	let inputClass = `appearance-none rounded-none relative block w-full px-3 py-2 border ${inputBorderClass} placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm`;
 
-	// This will Sign the user in JUHS portal
+	// This will Sign the user in Iha portal
 	const SignIn = () => {
 		Loading();
 		setSignInError("");
@@ -95,13 +95,13 @@ const SignInForm = () => {
 		<div className='min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8'>
 			<meta
 				name='description'
-				content='This is a sign in Page, where user will be able to sign in to its JUHS Portal.'
+				content='This is a sign in Page, where user will be able to sign in to its Iha Portal.'
 			></meta>
 			<div className='max-w-md w-full space-y-8'>
 				<div>
 					<BrandLogoImg />
 					<h2 className='mt-6 text-center text-3xl font-extrabold text-gray-900'>
-						Sign in to JUHS account
+						Sign in to Iha account
 					</h2>
 				</div>
 				<form
