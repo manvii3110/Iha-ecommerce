@@ -11,5 +11,6 @@ urlpatterns = [
     path('api/account/signin', views.signIn, name="signIn"),
     path('api/account/signout', views.signOut, name="signOut"),
     path('api/account/check_status', views.check_authentication_status),
-    path('api/register', views.registerUserApi)
+    path('api/register', views.registerUserApi),
+    path('api/check/user/<str:searchParameter>', views.check_database_of_user)
 ]

@@ -12,6 +12,6 @@ urlpatterns = [
     # For favicon
     re_path(r'^favicon\.ico$', favicon_view),
 
-    path('', views.index),
+    path('', views.index, name='index'),
     path('signin', views.signInView)  
 ]

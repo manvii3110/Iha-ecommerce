@@ -80,6 +80,36 @@ def check_authentication_status(request):
 
 
 
+# This will check if the username or email exist in database or not
+@ensure_csrf_cookie
+def check_database_of_user(request, searchParameter = None):
+    if request.method == 'POST' and searchParameter is not None:
+
+        if searchParameter in ['username','email']:
+
+            data = json.loads(request.body)
+
+            # This will search for username in database
+            if searchParameter == "username":
+                if len(User.objects.filter(username=data['username'])) == 0:
+                    return JsonResponse({"check": "Username does not exists"} , status=204)
+                else:
+                    return JsonResponse({"error": "Username Exists"} , status=406)
+            
+            # This will search for email in database
+            if searchParameter == 'email':
+                if len(User.objects.filter(email=data['email'])) == 0:
+                    return JsonResponse({"check": "Email does not exists"} , status=204)
+                else:
+                    return JsonResponse({"error": "Email Exists"} , status=406)
+
+        # If searchParameter is not provided
+        else:
+            return JsonResponse({"Error" : "Forbidden"} , status=403)
+    else:
+        return HttpResponseRedirect(reverse("frontend:index"))
+
+
 # This will allow only high level user's to create account
 @requires_csrf_token
 @ensure_csrf_cookie
