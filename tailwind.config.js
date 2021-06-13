@@ -1,12 +1,5 @@
 module.exports = {
-	// This is for Production
-	// purge: {
-	// 	enabled: true,
-	// 	content: ["./React_Files/**/*.js"],
-	// },
-
-	// This is for Development
-	purge: [],
+	purge: ["./React_Files/**/*.js"],
 	darkMode: false, // or 'media' or 'class'
 	theme: {
 		extend: {},
