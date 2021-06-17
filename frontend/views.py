@@ -20,3 +20,7 @@ def index(request):
 
 def signInView(request):
     return loadFile(request, filename='SignInPage')
+
+
+def registerView(request):
+    return loadFile(request, filename='Register')
