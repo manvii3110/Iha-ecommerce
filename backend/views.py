@@ -72,6 +72,7 @@ def check_authentication_status(request):
     if request.user.is_authenticated:
         return JsonResponse({"authenticated" : True,
                              "username" : request.user.username,
+                             "userImage": request.user.userImage.url,
                              "email": request.user.email,
                              "firstName": request.user.first_name,
                              "lastName": request.user.last_name} , status=200)

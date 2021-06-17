@@ -1,6 +1,10 @@
 from django.urls import  path
 from . import views
 
+# This will be helpful for media files, like user profile image
+from django.conf.urls.static import static
+from django.conf import settings
+
 
 app_name = "backend"
 
@@ -13,4 +17,4 @@ urlpatterns = [
     path('api/account/check_status', views.check_authentication_status),
     path('api/register', views.registerUserApi),
     path('api/check/user/<str:searchParameter>', views.check_database_of_user)
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # This will send user Profile from media Folder
