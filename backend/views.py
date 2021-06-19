@@ -119,7 +119,7 @@ def registerUserApi(request):
 
         # Checking if the email already exists
         if len(User.objects.filter(username=email)) != 0:
-            return JsonResponse({"Error" : "Email already exists."} , status=409)
+            return JsonResponse({"error" : "Email already exists."} , status=409)
 
         # Creating the user
         else:
@@ -127,7 +127,7 @@ def registerUserApi(request):
             user.first_name = first_name
             user.last_name = last_name
             user.save()
-            return JsonResponse({"Account" : True} , status=201)
+            return JsonResponse({"account" : True} , status=201)
 
     else:
         return HttpResponseRedirect(reverse("frontend:index"))     
