@@ -53,7 +53,7 @@ def signIn(request):
 
         # This will run if was no user found with that email address
         else:
-            return JsonResponse({"authenticated":False, "error": "Email not found"}, status=404)
+            return JsonResponse({"authenticated":False, "error": "Account Not Found"}, status=404)
 
     else:
         return HttpResponseRedirect(reverse("frontend:signInView"))              
@@ -71,7 +71,6 @@ def signOut(request):
 def check_authentication_status(request):
     if request.user.is_authenticated:
         return JsonResponse({"authenticated" : True,
-                             "username" : request.user.username,
                              "userImage": request.user.userImage.url,
                              "email": request.user.email,
                              "firstName": request.user.first_name,
@@ -81,22 +80,15 @@ def check_authentication_status(request):
 
 
 
-# This will check if the username or email exist in database or not
+# This will check if the email exist in database or not
 @ensure_csrf_cookie
 def check_database_of_user(request, searchParameter = None):
     if request.method == 'POST' and searchParameter is not None:
 
-        if searchParameter in ['username','email']:
+        if searchParameter in ['email']:
 
             data = json.loads(request.body)
 
-            # This will search for username in database
-            if searchParameter == "username":
-                if len(User.objects.filter(username=data['username'])) == 0:
-                    return JsonResponse({"check": "Username does not exists"} , status=204)
-                else:
-                    return JsonResponse({"error": "Username Exists"} , status=406)
-            
             # This will search for email in database
             if searchParameter == 'email':
                 if len(User.objects.filter(email=data['email'])) == 0:
@@ -119,38 +111,25 @@ def registerUserApi(request):
     if request.method == "POST":
 
         print(f"\n\n\n{request.POST}\n\n\n")
+        data = json.loads(request.body)
+        first_name = data["first_name"]
+        last_name = data["last_name"]
+        email = data["email"]
+        password = data["password"]
 
-        # Checking if the user is authenticated for doing this proccess
-        if request.user.is_authenticated and request.user.designation in ["A","P","T","St"]:
-            
-            print(f"\n\n\n{request.POST}\n\n\n")
-            data = json.loads(request.body)
-            username = data['username']
-            # username = request.POST["username"]
-            first_name = data["first_name"]
-            last_name = data["last_name"]
-            designation = data["designation"]
-            email = data["email"]
-            password = data["password"]
+        # Checking if the email already exists
+        if len(User.objects.filter(username=email)) != 0:
+            return JsonResponse({"Error" : "Email already exists."} , status=409)
 
-            # Checking if the username already exists
-            if len(User.objects.filter(username=username)) != 0:
-                return JsonResponse({"Error" : "Username already exists."} , status=409)
-
-            # Creating the user
-            else:
-                user = User.objects.create_user(username, email, password)
-                user.first_name = first_name
-                user.last_name = last_name
-                user.designation = designation
-                user.save()
-
+        # Creating the user
+        else:
+            user = User.objects.create_user(email, email, password)
+            user.first_name = first_name
+            user.last_name = last_name
+            user.save()
             return JsonResponse({"Account" : True} , status=201)
 
-        # If user is not authorized to create accounts
-        else:
-            return JsonResponse({"Account" : "Not authorized"} , status=401)
     else:
-        return HttpResponseRedirect(reverse("frontend:dashboard"))     
+        return HttpResponseRedirect(reverse("frontend:index"))     
 
 
