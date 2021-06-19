@@ -118,13 +118,13 @@ def registerUserApi(request):
         last_name = data["last_name"]
         email = data["email"]
         password = data["password"]
-        confirmpassword = data["confirmuserpassword"]
+        confirmuserpassword = data["confirmuserpassword"]
 
         # Checking if the email already exists
         if len(User.objects.filter(username=email)) != 0:
             return JsonResponse({"error": "Email already exists."}, status=409)
         # Checking if the password and confirmpassword are same
-        if(password != confirmpassword):
+        if(password != confirmuserpassword):
             return JsonResponse({"error": "Password and Confirm Password must be same."}, status=409)
         # Creating the user
         else:
