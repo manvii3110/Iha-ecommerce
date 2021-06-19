@@ -63,26 +63,26 @@ const Register = () => {
 			},
 			body: JSON.stringify(formData),
 		})
-			.then((r) => r.json())
-			.then((data) => {
-				/*
-				 * This will work only
-				 * if there is any type of error
-				 * else the user will be redirected to index page
-				 */
-				ResetSignBtn();
-				console.log(data);
-				if (data.error) {
-					setSignUpError(data.error);
-					setInputBorderClass("border-red-300 bg-red-50");
-				} else {
-					location.replace("./");
-				}
-			})
-			.catch((e) => {
-				ResetSignBtn();
-				console.log(`There is a catch ${e}`);
-			});
+		.then((r) => r.json())
+		.then((data) => {
+			/*
+			* This will work only
+			* if there is any type of error
+			* else the user will be redirected to index page
+			*/
+			ResetSignBtn();
+			console.log(data);
+			if (data.error) {
+				setSignUpError(data.error);
+				setInputBorderClass("border-red-300 bg-red-50");
+			} else {
+				location.replace("./");
+			}
+		})
+		.catch((e) => {
+			ResetSignBtn();
+			console.log(`There is a catch ${e}`);
+		});
 	};
 
 	return (
