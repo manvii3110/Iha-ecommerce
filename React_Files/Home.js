@@ -19,7 +19,7 @@ const Home = () => {
 					/>,
 				);
 				if (data.authenticated) {
-					setName(data.username);
+					setName(data.first_name);
 				}
 				console.log(data);
 			});
