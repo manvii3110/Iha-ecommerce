@@ -127,6 +127,7 @@ def registerUserApi(request):
             user.first_name = first_name
             user.last_name = last_name
             user.save()
+            login(user)
             return JsonResponse({"account" : True} , status=201)
 
     else:
