@@ -24,3 +24,7 @@ def signInView(request):
 
 def registerView(request):
     return loadFile(request, filename='Register')
+
+
+def createProduct(request):
+    return loadFile(request, filename='ProductPosting')

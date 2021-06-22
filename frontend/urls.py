@@ -14,5 +14,8 @@ urlpatterns = [
 
     path('', views.index, name='index'),
     path('signin', views.signInView),
-    path('register', views.registerView)  
+    path('register', views.registerView),
+
+
+    path('createproduct',views.createProduct)
 ]

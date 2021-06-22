@@ -69,6 +69,7 @@ def signOut(request):
     return HttpResponseRedirect(reverse("frontend:index"))
 
 
+
 # This will check if the user is signed in or not
 # And send a JSON reposnse
 def check_authentication_status(request):
