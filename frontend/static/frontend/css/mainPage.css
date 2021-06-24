@@ -24819,12 +24819,10 @@ video {
 .loading {
   border-radius: 9999px;
   border-width: 2px;
-  height: 2rem;
-  width: 2rem;
+  height: 1.5rem;
+  width: 1.5rem;
   -webkit-animation: spin 1s linear infinite;
   animation: spin 1s linear infinite;
-  min-width: 2rem;
-  min-height: 2rem;
   border-color: #e5e7eb;
   border-top-color: #6b7280; }
 
