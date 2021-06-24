@@ -113,7 +113,6 @@ def registerUserApi(request):
 
     if request.method == "POST":
 
-        print(f"\n\n\n{request.POST}\n\n\n")
         data = json.loads(request.body)
         first_name = data["first_name"]
         last_name = data["last_name"]
@@ -124,9 +123,11 @@ def registerUserApi(request):
         # Checking if the email already exists
         if len(User.objects.filter(username=email)) != 0:
             return JsonResponse({"error": "Email already exists."}, status=409)
+            
         # Checking if the password and confirmpassword are same
         if(password != confirmpassword):
             return JsonResponse({"error": "Password and Confirm Password must be same."}, status=409)
+
         # Creating the user
         else:
             user = User.objects.create_user(email, email, password)

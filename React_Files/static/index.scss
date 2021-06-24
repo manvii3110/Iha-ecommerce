@@ -3,9 +3,7 @@
 @import "tailwindcss/utilities";
 
 .loading {
-	@apply rounded-full animate-spin w-8 h-8 border-2;
-	min-width: 2rem;
-	min-height: 2rem;
+	@apply rounded-full animate-spin w-6 h-6 border-2;
 	border-color: #e5e7eb;
 	border-top-color: #6b7280;
 }
