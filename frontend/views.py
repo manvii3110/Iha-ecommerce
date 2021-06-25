@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+# This is for authentication in production
+from django.views.decorators.csrf import ensure_csrf_cookie
 
 # This will import all Static files fro index function
 from django.contrib.staticfiles.utils import get_files
@@ -18,13 +20,16 @@ def index(request):
     return loadFile(request, filename='Home')
 
 
+@ensure_csrf_cookie
 def signInView(request):
     return loadFile(request, filename='SignInPage')
 
 
+@ensure_csrf_cookie
 def registerView(request):
     return loadFile(request, filename='Register')
 
 
+@ensure_csrf_cookie
 def createProduct(request):
     return loadFile(request, filename='ProductPosting')
