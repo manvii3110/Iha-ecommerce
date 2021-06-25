@@ -1,3 +1,7 @@
+# ⚠ **This is Production Code**: Be very careful here! ⚠
+
+To visit this website, goto https://iha-commerce.herokuapp.com/
+
 # Iha-ecommerce
 
 This is the Iha's sub branch web App which is currently in development phase
