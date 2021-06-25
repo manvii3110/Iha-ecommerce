@@ -10,7 +10,7 @@ from django.views.decorators.csrf import  ensure_csrf_cookie
 # This will load a perticular script required to be render
 def loadFile(request, filename = 'App'):
     files = list(get_files(StaticFilesStorage(), location='frontend'))
-    files = {file.replace('frontend/','/static/frontend/') for file in files if filename in file and '.txt' not in file and 'runtime' not in file}
+    files = {file.replace('frontend/','/static/frontend/') for file in files if filename in file and not any(x in file for x in ['.txt','.gz','runtime'])}
     print(files)  
     return render(request, 'frontend/template.html', {"files": files})
 
