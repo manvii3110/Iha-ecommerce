@@ -8,7 +8,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.views.decorators.csrf import requires_csrf_token, ensure_csrf_cookie
+from django.views.decorators.csrf import csrf_protect, requires_csrf_token, ensure_csrf_cookie
 
 # For user creation
 from .models import User
@@ -33,6 +33,7 @@ from django.http import JsonResponse
 
 
 @requires_csrf_token
+@csrf_protect
 def signIn(request):
     if request.method == "POST":
 
@@ -85,6 +86,7 @@ def check_authentication_status(request):
 
 # This will check if the email exist in database or not
 @ensure_csrf_cookie
+@csrf_protect
 def check_database_of_user(request, searchParameter=None):
     if request.method == 'POST' and searchParameter is not None:
 
@@ -109,6 +111,7 @@ def check_database_of_user(request, searchParameter=None):
 # This will allow only high level user's to create account
 @requires_csrf_token
 @ensure_csrf_cookie
+@csrf_protect
 def registerUserApi(request):
 
     if request.method == "POST":
