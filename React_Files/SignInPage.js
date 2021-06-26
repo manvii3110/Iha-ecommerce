@@ -110,6 +110,7 @@ const SignInForm = () => {
 					onSubmit={(e) => {
 						e.preventDefault();
 						SignIn();
+						return false;
 					}}
 					method='POST'
 				>

@@ -122,6 +122,7 @@ const Register = () => {
 					onSubmit={(e) => {
 						e.preventDefault();
 						SignUp();
+						return false;
 					}}
 				>
 					<div className='flex mb-4'>
