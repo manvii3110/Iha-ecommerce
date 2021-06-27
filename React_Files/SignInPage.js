@@ -98,12 +98,7 @@ const SignInForm = () => {
 				content='This is a sign in Page, where user will be able to sign in to its Iha Portal.'
 			></meta>
 			<div className='max-w-md w-full space-y-8'>
-				<div>
-					<BrandLogoImg />
-					<h2 className='mt-6 text-center text-3xl font-extrabold text-gray-900'>
-						Sign in to Iha account
-					</h2>
-				</div>
+				<BrandLogoImg />
 				<form
 					id='SignInForm'
 					className='mt-8 space-y-6 pb-0 sm:pb-16'
@@ -113,6 +108,9 @@ const SignInForm = () => {
 					}}
 					method='POST'
 				>
+					<h2 className='mb-4 text-3xl font-normal text-gray-900'>
+						Sign In
+					</h2>
 					<input type='hidden' name='remember' defaultValue='true' />
 					<div className='rounded-md shadow-sm -space-y-px'>
 						<div>
@@ -179,7 +177,7 @@ const SignInForm = () => {
 					<div>
 						<button
 							type='submit'
-							className='group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+							className='transition-all group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
 						>
 							<span className='absolute left-0 inset-y-0 flex items-center pl-3'>
 								<LockClosedIcon
@@ -189,6 +187,22 @@ const SignInForm = () => {
 							</span>
 							Sign in
 						</button>
+					</div>
+					{/* Sign Up Button */}
+					<div>
+						<div className='flex mb-6'>
+							<hr className='w-2/6 my-auto border-gray-300' />
+							<h3 className='w-4/6 text-center'>
+								New to Iha ecommerce?
+							</h3>
+							<hr className='w-2/6 my-auto border-gray-300' />
+						</div>
+						<a
+							className='transition-all group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-gray-800 bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500'
+							href='./register'
+						>
+							Create your Iha Account
+						</a>
 					</div>
 				</form>
 			</div>

@@ -24,12 +24,35 @@ const Home = () => {
 				console.log(data);
 			});
 	}, []);
+
+	const urlsAvaiable = [
+		{
+			name: "Home",
+			url: "./",
+		},
+		{ name: "Add New Porduct", url: "./createproduct" },
+		{ name: "Create new Account", url: "./register" },
+		{ name: "Sign In", url: "./signin" },
+	];
 	return (
 		<div className='p-6'>
 			{data}
-			<h1 className='font-bold text-7xl text-center mx-auto flex content-center'>
-				Hi, {username}
-			</h1>
+			<h1 className='font-bold text-7xl'>Hi, {username}</h1>
+			<hr className='mt-8' />
+			<div className='grid gap-y-3'>
+				<h1 class='font-bold text-2xl '>Available Urls </h1>
+				{urlsAvaiable.map((i, index) => {
+					return (
+						<a
+							href={i.url}
+							key={index}
+							className='text-blue-500 no-underline hover:underline hover:text-blue-900'
+						>
+							{i.name}
+						</a>
+					);
+				})}
+			</div>
 		</div>
 	);
 };

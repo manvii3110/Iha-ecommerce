@@ -139,3 +139,49 @@ def registerUserApi(request):
 
     else:
         return HttpResponseRedirect(reverse("frontend:index"))
+
+
+
+from .models import Product
+from rest_framework import status
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework import viewsets, permissions
+from .serializers import ProductSerializer
+
+class ProductViewSet(viewsets.ModelViewSet):
+    """
+    Product API - this allows user to view, add, and edit products
+    """
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+
+@api_view(['GET', 'POST', 'PUT', 'DELETE'])
+def Product_api(request, pk=None, format=None):
+    """
+    Retrieve, update or delete a Product.
+    """
+    if pk or request.method != 'GET':
+        try:
+            queryset = Product.objects.get(pk=pk)
+        except Product.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+    else:
+        queryset = Product.objects.all()
+
+    if request.method == 'GET':
+        serializer = ProductSerializer(queryset, many=True)
+        return Response(serializer.data)
+
+    elif request.method == 'PUT':
+        serializer = ProductSerializer(queryset, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    elif request.method == 'DELETE':
+        queryset.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)

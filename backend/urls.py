@@ -1,4 +1,4 @@
-from django.urls import  path
+from django.urls import path, include
 from . import views
 
 # This will be helpful for media files, like user profile image
@@ -18,3 +18,17 @@ urlpatterns = [
     path('api/account/register', views.registerUserApi),
     path('api/check/user/<str:searchParameter>', views.check_database_of_user)
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # This will send user Profile from media Folder
+
+
+from rest_framework import routers
+
+router = routers.DefaultRouter()
+router.register('product', views.ProductViewSet)
+
+# Wire up our API using automatic URL routing.
+# Additionally, we include login URLs for the browsable API.
+urlpatterns += [
+    path('api/', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('api/myproduct', views.Product_api)
+]

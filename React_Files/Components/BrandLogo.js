@@ -6,7 +6,7 @@ export const BrandLogoImg = () => {
 	return (
 		<>
 			<img
-				className='mx-auto h-32 w-auto'
+				className='mx-auto h-16 w-auto'
 				src='./static/frontend/img/ihaIcon.svg'
 				alt='JUHS Logo'
 			/>
