@@ -245,7 +245,7 @@ const Register = () => {
 						<div className='flex mb-6'>
 							<hr className='w-2/6 my-auto border-gray-300' />
 							<h3 className='w-4/6 text-center'>
-								Already have an Account?
+								Already a User?
 							</h3>
 							<hr className='w-2/6 my-auto border-gray-300' />
 						</div>

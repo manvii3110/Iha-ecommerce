@@ -97,11 +97,11 @@ const SignInForm = () => {
 				name='description'
 				content='This is a sign in Page, where user will be able to sign in to its Iha Portal.'
 			></meta>
-			<div className='max-w-md w-full space-y-8'>
+			<div className='max-w-md w-full space-y-8 pb-0 sm:pb-16'>
 				<BrandLogoImg />
 				<form
 					id='SignInForm'
-					className='mt-8 space-y-6 pb-0 sm:pb-16'
+					className='mt-8 space-y-6  border rounded-lg py-4 px-4 bg-white'
 					onSubmit={(e) => {
 						e.preventDefault();
 						SignIn();
@@ -188,23 +188,24 @@ const SignInForm = () => {
 							Sign in
 						</button>
 					</div>
-					{/* Sign Up Button */}
-					<div>
-						<div className='flex mb-6'>
-							<hr className='w-2/6 my-auto border-gray-300' />
-							<h3 className='w-4/6 text-center'>
-								New to Iha ecommerce?
-							</h3>
-							<hr className='w-2/6 my-auto border-gray-300' />
-						</div>
-						<a
-							className='transition-all group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-gray-800 bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500'
-							href='./register'
-						>
-							Create your Iha Account
-						</a>
-					</div>
 				</form>
+
+				{/* Sign Up Button */}
+				<div>
+					<div className='flex mb-6'>
+						<hr className='w-2/6 my-auto border-gray-300' />
+						<h3 className='w-4/6 text-center'>
+							New at Iha ecommerce?
+						</h3>
+						<hr className='w-2/6 my-auto border-gray-300' />
+					</div>
+					<a
+						className='transition-all group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-gray-800 bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500'
+						href='./register'
+					>
+						Create your Iha Account
+					</a>
+				</div>
 			</div>
 		</div>
 	);
