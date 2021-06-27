@@ -192,7 +192,7 @@ const SignInForm = () => {
 
 				{/* Sign Up Button */}
 				<div>
-					<div className='flex mb-6'>
+					<div className='flex mb-6 -mt-2'>
 						<hr className='w-2/6 my-auto border-gray-300' />
 						<h3 className='w-4/6 text-center'>
 							New at Iha ecommerce?
