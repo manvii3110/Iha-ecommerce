@@ -12,14 +12,14 @@ const Home = () => {
 		fetch("./api/account/check_status")
 			.then((d) => d.json())
 			.then((data) => {
-				setData(
-					<img
-						className='h-16 w-16 rounded-full my-auto mt-4'
-						src={data.userImage}
-					/>,
-				);
 				if (data.authenticated) {
 					setName(data.first_name);
+					setData(
+						<img
+							className='h-16 w-16 rounded-full my-auto mt-4'
+							src={data.userImage}
+						/>,
+					);
 				}
 				console.log(data);
 			});
