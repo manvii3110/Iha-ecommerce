@@ -13,6 +13,7 @@ urlpatterns = [
     re_path(r'^favicon\.ico$', favicon_view),
 
     path('', views.index, name='index'),
+    path('home', views.home, name='home'),
     path('signin', views.signInView),
     path('register', views.registerView),
 

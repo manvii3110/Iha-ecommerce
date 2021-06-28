@@ -1,3 +1,5 @@
+from django.http.response import HttpResponseRedirect
+from django.urls import reverse
 from django.shortcuts import render
 
 # This is for authentication in production
@@ -16,8 +18,11 @@ def loadFile(request, filename = 'App'):
     return render(request, 'frontend/template.html', {"files": files})
 
 
-def index(request):
+def home(request):
     return loadFile(request, filename='Home')
+
+def index(request):
+    return HttpResponseRedirect(reverse('frontend:home'))
 
 
 @ensure_csrf_cookie

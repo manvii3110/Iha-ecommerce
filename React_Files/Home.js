@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 
+import Header from "./Components/Header";
+
 require("./static/index.scss");
 
 const Home = () => {
@@ -35,25 +37,28 @@ const Home = () => {
 		{ name: "Sign In", url: "./signin" },
 	];
 	return (
-		<div className='p-6'>
-			{data}
-			<h1 className='font-bold text-7xl'>Hi, {username}</h1>
-			<hr className='mt-8' />
-			<div className='grid gap-y-3'>
-				<h1 class='font-bold text-2xl '>Available Urls </h1>
-				{urlsAvaiable.map((i, index) => {
-					return (
-						<a
-							href={i.url}
-							key={index}
-							className='text-blue-500 no-underline hover:underline hover:text-blue-900'
-						>
-							{i.name}
-						</a>
-					);
-				})}
+		<>
+			<Header />
+			<div className='p-6'>
+				{data}
+				<h1 className='font-bold text-7xl'>Hi, {username}</h1>
+				<hr className='mt-8' />
+				<div className='grid gap-y-3'>
+					<h1 class='font-bold text-2xl '>Available Urls </h1>
+					{urlsAvaiable.map((i, index) => {
+						return (
+							<a
+								href={i.url}
+								key={index}
+								className='text-blue-500 no-underline hover:underline hover:text-blue-900'
+							>
+								{i.name}
+							</a>
+						);
+					})}
+				</div>
 			</div>
-		</div>
+		</>
 	);
 };
 

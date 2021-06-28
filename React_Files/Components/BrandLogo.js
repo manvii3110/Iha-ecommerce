@@ -26,19 +26,19 @@ export const BrandLogoCircle = () => {
 	);
 };
 
-const BrandLogoHeader = () => {
+const BrandLogo = () => {
 	return (
 		<a
 			href='./'
-			className='w-max transition flex px-2 py-0.5 bg-white active:bg-gray-100 border border-white hover:border-gray-400 active:border-gray-500'
+			className='w-max transition flex px-1 md:px-3 py-0.5 md:py-2 bg-white active:bg-gray-200 border border-white hover:border-gray-400 active:border-gray-500'
 			title='Goto Iha Ecommerce'
 		>
 			<BrandLogoImg />
-			<div className='hidden sm:block font-medium text-gray-900 my-auto pt-2 ml-1'>
+			<div className='hidden md:block font-normal text-gray-900 my-auto ml-1'>
 				Ship it Free
 			</div>
 		</a>
 	);
 };
 
-export default BrandLogoHeader;
+export default BrandLogo;
