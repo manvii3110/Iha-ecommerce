@@ -41,18 +41,18 @@ export default function SignInButton(mainProp) {
 					{({ open }) => (
 						<>
 							<div>
-								<Menu.Button className='max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-800 focus:ring-white'>
+								<Menu.Button
+									className='max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-800 focus:ring-white'
+									title={data && data.first_name}
+								>
 									<span className='sr-only'>
 										Open user menu
 									</span>
 									<img
 										className='h-8 w-8 rounded-full bg-white p-2 text-gray-900'
-										src={
-											data != undefined
-												? data.userImage
-												: ""
-										}
-										alt=''
+										src={data && data.userImage}
+										alt={data && data.first_name}
+										title={data && data.first_name}
 									/>
 								</Menu.Button>
 							</div>
