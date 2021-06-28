@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import { BrandLogoImg } from "./Components/BrandLogo";
+import { BrandLogoCircle } from "./Components/BrandLogo";
 import { InformationCircleIcon } from "@heroicons/react/solid";
 require("./static/index.scss");
 
@@ -109,7 +109,7 @@ const Register = () => {
 	return (
 		<div className='min-h-screen flex items-center justify-center bg-gray-50 py-12 sm:py-2 px-4 sm:px-6 lg:px-8'>
 			<div className='max-w-md w-full my-4 space-y-4'>
-				<BrandLogoImg />
+				<BrandLogoCircle />
 				<form
 					id='SignUpForm'
 					className='mt-8 space-y-6  border rounded-lg py-4 px-4 bg-white'

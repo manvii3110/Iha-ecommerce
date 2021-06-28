@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { LockClosedIcon } from "@heroicons/react/solid";
-
-import { BrandLogoImg } from "./Components/BrandLogo";
+import { BrandLogoCircle } from "./Components/BrandLogo";
 
 require("./static/index.scss");
 
@@ -98,7 +97,7 @@ const SignInForm = () => {
 				content='This is a sign in Page, where user will be able to sign in to its Iha Portal.'
 			></meta>
 			<div className='max-w-md w-full space-y-8 pb-0 sm:pb-16'>
-				<BrandLogoImg />
+				<BrandLogoCircle />
 				<form
 					id='SignInForm'
 					className='mt-8 space-y-6  border rounded-lg py-4 px-4 bg-white'

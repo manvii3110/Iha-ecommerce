@@ -6,33 +6,39 @@ export const BrandLogoImg = () => {
 	return (
 		<>
 			<img
-				className='mx-auto h-16 w-auto'
-				src='./static/frontend/img/ihaIcon.svg'
-				alt='JUHS Logo'
+				className='h-12	 w-12'
+				src='./static/frontend/img/ihaLogo.svg'
+				alt='Iha Ecommerce Logo'
 			/>
 		</>
 	);
 };
 
-const BrandLogo = () => {
+export const BrandLogoCircle = () => {
 	return (
 		<a
 			href='./'
-			className='brandLogo d-flex py-1 pr-1 defaultHover'
-			title='Goto JUHS Home Page'
+			className='flex mx-auto w-max transition flex px-1 py-1 rounded-full bg-transparent hover:bg-white active:bg-gray-100 border border-white hover:border-gray-200 active:border-gray-500 shadow-none hover:shadow active:shadow-md'
+			title='Goto Iha Ecommerce'
 		>
-			<img
-				className='brandLogo-img'
-				src='./static/frontend/img/ihaIcon.svg'
-			/>
-			<div className='brandLogo-text my-auto '>
-				<div className='mx-1 my-auto'>
-					<p className='my-1'>Jawahar Urdu High School &</p>
-					<p className='my-1'>Junior College, Motala</p>
-				</div>
+			<BrandLogoImg />
+		</a>
+	);
+};
+
+const BrandLogoHeader = () => {
+	return (
+		<a
+			href='./'
+			className='w-max transition flex px-2 py-0.5 bg-white active:bg-gray-100 border border-white hover:border-gray-400 active:border-gray-500'
+			title='Goto Iha Ecommerce'
+		>
+			<BrandLogoImg />
+			<div className='hidden sm:block font-medium text-gray-900 my-auto pt-2 ml-1'>
+				Ship it Free
 			</div>
 		</a>
 	);
 };
 
-export default BrandLogo;
+export default BrandLogoHeader;
