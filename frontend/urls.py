@@ -3,7 +3,7 @@ from . import views
 
 # For favicon
 from django.views.generic.base import RedirectView
-favicon_view = RedirectView.as_view(url='/static/frontend/img/ihaIcon.svg', permanent=True)
+favicon_view = RedirectView.as_view(url='/static/frontend/svg/ihaIcon.svg', permanent=True)
 
 
 app_name = "frontend"

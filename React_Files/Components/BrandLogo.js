@@ -7,7 +7,7 @@ export const BrandLogoImg = () => {
 		<>
 			<img
 				className='h-12	 w-12'
-				src='./static/frontend/img/ihaLogo.svg'
+				src='./static/frontend/svg/ihaLogo.svg'
 				alt='Iha Ecommerce Logo'
 			/>
 		</>
