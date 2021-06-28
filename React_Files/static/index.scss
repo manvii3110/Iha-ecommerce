@@ -7,3 +7,27 @@
 	border-color: #e5e7eb;
 	border-top-color: #6b7280;
 }
+
+.myGalleryImages {
+	div img {
+		@apply object-cover h-44 md:h-64 !important;
+	}
+}
+
+.image-gallery-icon {
+	@apply filter-none !important;
+}
+
+.image-gallery-left-nav,
+.image-gallery-right-nav {
+	svg {
+		@apply transition backdrop-filter-none backdrop-saturate-200 hover:backdrop-filter backdrop-blur border-none hover:border mx-4 h-16 shadow-none hover:shadow-sm text-white  rounded-lg bg-transparent hover:bg-gray-900 hover:bg-opacity-50 !important;
+	}
+}
+.image-gallery-play-button {
+	@apply left-8 bottom-2 shadow-none hover:shadow my-auto p-2 rounded-full text-sm text-white  bg-transparent hover:bg-gray-900 hover:bg-opacity-50 !important;
+}
+
+.image-gallery-bullet {
+	@apply shadow-none hover:shadow border-white border hover:bg-gray-400 !important;
+}

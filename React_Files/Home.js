@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { Suspense, lazy, useEffect, useState } from "react";
 import ReactDOM from "react-dom";
+
+require("./static/index.scss");
 
 import Header from "./Components/Header";
 
-require("./static/index.scss");
+const Gallery = lazy(() => import("./Components/Gallery"));
 
 const Home = () => {
 	const a = "You Need to Sign in";
@@ -39,6 +41,9 @@ const Home = () => {
 	return (
 		<>
 			<Header />
+			<Suspense fallback={<div className='loading'></div>}>
+				<Gallery />
+			</Suspense>
 			<div className='p-6'>
 				{data}
 				<h1 className='font-bold text-7xl'>Hi, {username}</h1>

@@ -68,7 +68,7 @@ export default function SignInButton(mainProp) {
 							>
 								<Menu.Items
 									static
-									className='origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none'
+									className='z-40 sorigin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none'
 								>
 									{profile.map((item) => (
 										<Menu.Item key={item.title}>
