@@ -202,7 +202,7 @@ const SignInForm = () => {
 						className='transition-all group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-gray-800 bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500'
 						href='./register'
 					>
-						Create your Iha Account
+						Create an Account
 					</a>
 				</div>
 			</div>
