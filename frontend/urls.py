@@ -18,5 +18,5 @@ urlpatterns = [
     path('register', views.registerView),
 
 
-    path('createproduct',views.createProduct)
+    path('sell',views.sellProductPage)
 ]

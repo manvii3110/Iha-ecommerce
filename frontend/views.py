@@ -36,5 +36,5 @@ def registerView(request):
 
 
 @ensure_csrf_cookie
-def createProduct(request):
-    return loadFile(request, filename='ProductPosting')
+def sellProductPage(request):
+    return loadFile(request, filename='sellProductPage')
