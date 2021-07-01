@@ -41,15 +41,23 @@ const Home = () => {
 	return (
 		<>
 			<Header />
-			<Suspense fallback={<div className='loading'></div>}>
-				<Gallery />
+			<Suspense
+				fallback={
+					<div className='mx-auto'>
+						<div className='loading'></div>
+					</div>
+				}
+			>
+				<div className='max-w-screen-2xl mx-auto p-2 sm:p-4'>
+					<Gallery />
+				</div>
 			</Suspense>
 			<div className='p-6'>
 				{data}
 				<h1 className='font-bold text-7xl'>Hi, {username}</h1>
 				<hr className='mt-8' />
 				<div className='grid gap-y-3'>
-					<h1 class='font-bold text-2xl '>Available Urls </h1>
+					<h1 class='font-medium text-2xl '>Available Urls </h1>
 					{urlsAvaiable.map((i, index) => {
 						return (
 							<a

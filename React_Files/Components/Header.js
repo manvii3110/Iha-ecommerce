@@ -44,13 +44,13 @@ const pages = [
 export default function Header(mainProp) {
 	return (
 		<Popover
-			className={`relative ${
-				mainProp.className ? mainProp.className : " bg-white shadow-lg"
+			className={`relative w-full border-b-2 border-gray-200 ${
+				mainProp.className ? mainProp.className : " bg-white "
 			}`}
 		>
 			{({ open }) => (
 				<>
-					<div className='max-w-screen-2xl mx-auto px-2 sm:px-4 ring-1 ring-black ring-opacity-5'>
+					<div className='max-w-screen-2xl mx-auto px-2 sm:px-4'>
 						<div className='flex justify-between items-center md:justify-start md:space-x-10'>
 							<Suspense
 								fallback={<div className='Loading'></div>}
@@ -65,10 +65,10 @@ export default function Header(mainProp) {
 							</Suspense>
 
 							<div
-								className={`hidden -mb-1 md:flex md:space-x-10 ${
+								className={`hidden -mb-0.5 md:flex md:space-x-10 ${
 									mainProp && mainProp.small == true
 										? "h-12"
-										: "h-16"
+										: "h-20"
 								}`}
 							>
 								{pages.map((page, index) => {
@@ -138,7 +138,7 @@ export default function Header(mainProp) {
 								<Popover.Panel
 									focus
 									static
-									className='absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden'
+									className='z-40 absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden'
 								>
 									<div className='rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50'>
 										<div className='pt-5 pb-6 px-5'>
