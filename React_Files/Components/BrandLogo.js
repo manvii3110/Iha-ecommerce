@@ -28,7 +28,7 @@ export const BrandLogoCircle = () => {
 
 const BrandLogo = () => {
 	return (
-		<a href='./' className='flex' title='Goto Iha Ecommerce'>
+		<a href='./' className='flex ml-2 sm:ml-0' title='Goto Iha Ecommerce'>
 			<BrandLogoImg />
 			<div className='hidden md:block font-normal text-gray-900 my-auto ml-1 mb-2'>
 				Ship it Free
