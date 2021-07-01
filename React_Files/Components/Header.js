@@ -43,7 +43,11 @@ const pages = [
 
 export default function Header(mainProp) {
 	return (
-		<Popover className='relative bg-white shadow-lg'>
+		<Popover
+			className={`relative ${
+				mainProp.className ? mainProp.className : " bg-white shadow-lg"
+			}`}
+		>
 			{({ open }) => (
 				<>
 					<div className='max-w-screen-2xl mx-auto px-2 sm:px-4 ring-1 ring-black ring-opacity-5'>

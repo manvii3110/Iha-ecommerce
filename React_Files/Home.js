@@ -34,7 +34,7 @@ const Home = () => {
 			name: "Home",
 			url: "./",
 		},
-		{ name: "Add New Porduct", url: "./createproduct" },
+		{ name: "Add New Porduct", url: "./sell" },
 		{ name: "Create new Account", url: "./register" },
 		{ name: "Sign In", url: "./signin" },
 	];
