@@ -42,7 +42,7 @@ export default function SignInButton(mainProp) {
 						<>
 							<div>
 								<Menu.Button
-									className='max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-green-800 focus:ring-white'
+									className='max-w-xs border-2  rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-green-800 focus:ring-white'
 									title={data && data.first_name}
 								>
 									<span className='sr-only'>
@@ -132,22 +132,12 @@ export default function SignInButton(mainProp) {
 		</>,
 		<>
 			<div className='hidden md:flex items-center justify-end md:flex-1 lg:w-0'>
-				<a
-					href='./signin'
-					className={`ml-8 whitespace-nowrap inline-flex items-center justify-center rounded-md border border-transparent ${
-						mainProp && mainProp.small == true
-							? "text-sm px-3 py-1"
-							: " text-base px-5 py-2"
-					} shadow-sm font-medium text-white bg-green-600 hover:bg-green-700`}
-				>
+				<a href='./signin' className='btn-primary'>
 					Sign in
 				</a>
 			</div>
 			<div className='flex md:hidden mx-5 pb-6'>
-				<a
-					href='./signin'
-					className=' w-full text-center justify-center px-5 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-600 hover:bg-green-700'
-				>
+				<a href='./signin' className='w-full btn-primary'>
 					Sign in
 				</a>
 			</div>

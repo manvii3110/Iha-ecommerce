@@ -174,10 +174,7 @@ const SignInForm = () => {
 					</div>
 
 					<div>
-						<button
-							type='submit'
-							className='transition-all group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500'
-						>
+						<button type='submit' className='w-full btn-primary'>
 							<span className='absolute left-0 inset-y-0 flex items-center pl-3'>
 								<LockClosedIcon
 									className='h-5 w-5 text-green-500 group-hover:text-green-400'
@@ -198,10 +195,7 @@ const SignInForm = () => {
 						</h3>
 						<hr className='w-2/6 my-auto border-gray-300' />
 					</div>
-					<a
-						className='transition-all group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-gray-800 bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500'
-						href='./register'
-					>
+					<a className='w-full btn-secondary' href='./register'>
 						Create an Account
 					</a>
 				</div>

@@ -28,7 +28,7 @@ class App extends Component {
 							using babel, sass, with a hot dev server and an
 							optimized production build.
 							<div className={"container mx-auto px-4"}>
-								<div class='bg-gradient-to-r from-green-400 to-green-500 hover:from-pink-500 hover:to-yellow-500 '>
+								<div class='bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 '>
 									{" "}
 									This is my graident apps This is new
 									gradient But now this laso new one

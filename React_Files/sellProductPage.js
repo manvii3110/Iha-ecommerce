@@ -142,12 +142,10 @@ function ProductPosting() {
 							</div>
 						</div>
 						<div className='mt-4 flex'>
-							<button className='transition-all group relative flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-gray-800 bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500'>
-								Cancel
-							</button>
+							<button className='btn-secondary'>Cancel</button>
 							<button
 								type='submit'
-								className='ml-auto group relative w-max flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500'
+								className='ml-auto btn-primary'
 							>
 								Publish
 							</button>

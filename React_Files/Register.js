@@ -225,7 +225,7 @@ const Register = () => {
 						<button
 							id='registerBtn'
 							type='submit'
-							className='group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500'
+							className='btn-primary w-full'
 						>
 							Create your Iha Account
 						</button>
@@ -239,10 +239,7 @@ const Register = () => {
 							</h3>
 							<hr className='w-2/6 my-auto border-gray-300' />
 						</div>
-						<a
-							className='transition-all group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-gray-800 bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500'
-							href='./signin'
-						>
+						<a className='btn-secondary' href='./signin'>
 							Sign In
 						</a>
 					</div>
