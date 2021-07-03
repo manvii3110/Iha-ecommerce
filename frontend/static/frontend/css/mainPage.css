@@ -25618,6 +25618,15 @@ video {
   border-color: #e5e7eb;
   border-top-color: #6b7280; }
 
+label {
+  display: block;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  margin-bottom: 0.5rem;
+  --tw-text-opacity: 1;
+  color: rgba(55, 65, 81, var(--tw-text-opacity)); }
+
 .myGalleryImages div img {
   height: 11rem !important;
   -o-object-fit: cover !important;

@@ -124,9 +124,7 @@ const Register = () => {
 					</h2>
 					<div className='flex mb-4'>
 						<div className='w-1/2 mr-1'>
-							<label className='block text-grey-darker text-sm font-bold mb-2'>
-								First Name
-							</label>
+							<label>First Name</label>
 							<input
 								className={inputClass}
 								name='first_name'
@@ -136,9 +134,7 @@ const Register = () => {
 							></input>
 						</div>
 						<div className='w-1/2 ml-1'>
-							<label className='block text-grey-darker text-sm font-bold mb-2'>
-								Last Name
-							</label>
+							<label>Last Name</label>
 							<input
 								className={inputClass}
 								name='last_name'
@@ -149,9 +145,7 @@ const Register = () => {
 						</div>
 					</div>
 					<div className='mb-4'>
-						<label className='block text-grey-darker text-sm font-bold mb-2'>
-							Email Address
-						</label>
+						<label>Email Address</label>
 						<input
 							className={` ${
 								emailError != ""
@@ -179,9 +173,7 @@ const Register = () => {
 						)}
 					</div>
 					<div className='mb-4'>
-						<label className='block text-grey-darker text-sm font-bold mb-2'>
-							Password
-						</label>
+						<label>Password</label>
 						<input
 							className={
 								passwordError !== ""
@@ -199,9 +191,7 @@ const Register = () => {
 						></input>
 					</div>
 					<div className='mb-4'>
-						<label className='block text-grey-darker text-sm font-bold mb-2'>
-							Confirm Password
-						</label>
+						<label>Confirm Password</label>
 						<input
 							className={
 								passwordError !== ""
