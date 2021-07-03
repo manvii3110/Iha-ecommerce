@@ -54,7 +54,7 @@ const SignInForm = () => {
 	// If any error is there, these will be useful
 	const [signInError, setSignInError] = useState("");
 	const [inputBorderClass, setInputBorderClass] = useState("border-gray-300");
-	let inputClass = `appearance-none rounded-none relative block w-full px-3 py-2 border ${inputBorderClass} placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm`;
+	let inputClass = `appearance-none rounded-none relative block w-full px-3 py-2 border ${inputBorderClass} placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm`;
 
 	// This will Sign the user in Iha portal
 	const SignIn = () => {
@@ -153,7 +153,7 @@ const SignInForm = () => {
 							<input
 								name='remember_me'
 								type='checkbox'
-								className='h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded'
+								className='h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded'
 							/>
 							<label
 								htmlFor='remember_me'
@@ -166,7 +166,7 @@ const SignInForm = () => {
 						<div className='text-sm'>
 							<a
 								href='#'
-								className='font-medium text-indigo-600 hover:text-indigo-500'
+								className='font-medium text-green-600 hover:text-green-500'
 							>
 								Forgot your password?
 							</a>
@@ -176,11 +176,11 @@ const SignInForm = () => {
 					<div>
 						<button
 							type='submit'
-							className='transition-all group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+							className='transition-all group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500'
 						>
 							<span className='absolute left-0 inset-y-0 flex items-center pl-3'>
 								<LockClosedIcon
-									className='h-5 w-5 text-indigo-500 group-hover:text-indigo-400'
+									className='h-5 w-5 text-green-500 group-hover:text-green-400'
 									aria-hidden='true'
 								/>
 							</span>

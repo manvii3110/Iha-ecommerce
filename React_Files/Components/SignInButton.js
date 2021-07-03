@@ -42,7 +42,7 @@ export default function SignInButton(mainProp) {
 						<>
 							<div>
 								<Menu.Button
-									className='max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-800 focus:ring-white'
+									className='max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-green-800 focus:ring-white'
 									title={data && data.first_name}
 								>
 									<span className='sr-only'>
@@ -112,7 +112,7 @@ export default function SignInButton(mainProp) {
 							{data != undefined ? data.email : ""}
 						</div>
 					</div>
-					<button className='ml-auto focus:outline-none flex-shrink-0 p-1 rounded-full text-indigo-600 bg-white hover:bg-gray-200 '>
+					<button className='ml-auto focus:outline-none flex-shrink-0 p-1 rounded-full text-green-600 bg-white hover:bg-gray-200 '>
 						<span className='sr-only'>View notifications</span>
 						<BellIcon className='h-6 w-6' aria-hidden='true' />
 					</button>
@@ -138,7 +138,7 @@ export default function SignInButton(mainProp) {
 						mainProp && mainProp.small == true
 							? "text-sm px-3 py-1"
 							: " text-base px-5 py-2"
-					} shadow-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700`}
+					} shadow-sm font-medium text-white bg-green-600 hover:bg-green-700`}
 				>
 					Sign in
 				</a>
@@ -146,7 +146,7 @@ export default function SignInButton(mainProp) {
 			<div className='flex md:hidden mx-5 pb-6'>
 				<a
 					href='./signin'
-					className=' w-full text-center justify-center px-5 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700'
+					className=' w-full text-center justify-center px-5 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-600 hover:bg-green-700'
 				>
 					Sign in
 				</a>

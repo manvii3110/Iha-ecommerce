@@ -9,7 +9,7 @@ document.querySelector("body").className = " bg-gray-100";
 function ProductPosting() {
 	const [inputBorderClass, setInputBorderClass] = useState("border-gray-300");
 	const [condition, setCondition] = useState("");
-	let inputClass = `mt-1 appearance-none rounded-lg relative block w-full px-3 py-2 border ${inputBorderClass} placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm`;
+	let inputClass = `mt-1 appearance-none rounded-lg relative block w-full px-3 py-2 border ${inputBorderClass} placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm`;
 	const [productPostingError, setProductPostingError] = useState("");
 	const PostProduct = () => {
 		setInputBorderClass("border-gray-300");
@@ -64,7 +64,7 @@ function ProductPosting() {
 										<div className='flex text-sm text-gray-600'>
 											<label
 												htmlFor='file-upload'
-												className='relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500'
+												className='relative cursor-pointer bg-white rounded-md font-medium text-green-600 hover:text-green-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-green-500'
 											>
 												<span>Upload a file</span>
 												<input
@@ -147,7 +147,7 @@ function ProductPosting() {
 							</button>
 							<button
 								type='submit'
-								className='ml-auto group relative w-max flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+								className='ml-auto group relative w-max flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500'
 							>
 								Publish
 							</button>

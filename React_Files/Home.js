@@ -63,7 +63,7 @@ const Home = () => {
 							<a
 								href={i.url}
 								key={index}
-								className='text-blue-500 no-underline hover:underline hover:text-blue-900'
+								className='text-green-500 no-underline hover:underline hover:text-green-900'
 							>
 								{i.name}
 							</a>

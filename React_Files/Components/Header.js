@@ -73,7 +73,7 @@ export default function Header(mainProp) {
 							>
 								{pages.map((page, index) => {
 									let classes =
-										"h-full transition-all px-2 flex text-base font-medium text-gray-500 hover:text-blue-500 focus:text-gray-700 border-b-2 border-transparent focus:bg-gray-100 active:bg-gray-200 focus:border-blue-500";
+										"h-full transition-all px-2 flex text-base font-medium text-gray-500 hover:text-green-500 focus:text-gray-700 border-b-2 border-transparent focus:bg-gray-100 active:bg-gray-200 focus:border-green-500";
 									if (
 										window.location.href.includes(
 											page.href.replace("./", ""),
@@ -83,7 +83,7 @@ export default function Header(mainProp) {
 											mainProp && mainProp.small == true
 												? "bg-gray-100"
 												: ""
-										} text-gray-700 border-blue-500 `;
+										} text-gray-700 border-green-500 `;
 									}
 									return (
 										<>
@@ -117,7 +117,7 @@ export default function Header(mainProp) {
 
 							{/* This will appear when the device is small */}
 							<div className='mr-2 -my-2 md:hidden'>
-								<Popover.Button className='bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500'>
+								<Popover.Button className='bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500'>
 									<span className='sr-only'>Open menu</span>
 									<MenuIcon
 										className='h-6 w-6'
@@ -147,7 +147,7 @@ export default function Header(mainProp) {
 													<BrandLogoImg className='h-16' />
 												</div>
 												<div className='-mr-2'>
-													<Popover.Button className='bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500'>
+													<Popover.Button className='bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500'>
 														<span className='sr-only'>
 															Close menu
 														</span>
@@ -167,7 +167,7 @@ export default function Header(mainProp) {
 															className='-m-3 p-3 flex items-center rounded-md hover:bg-gray-200'
 														>
 															<item.icon
-																className='flex-shrink-0 h-6 w-6 text-blue-600'
+																className='flex-shrink-0 h-6 w-6 text-green-600'
 																aria-hidden='true'
 															/>
 															<span className='ml-3 text-base font-medium text-gray-900'>
