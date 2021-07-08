@@ -33,7 +33,7 @@ class Product(models.Model):
         User, on_delete=models.CASCADE, related_name="products", null=False)
 
 
-    name = models.CharField(max_length=256, blank=False)
+    name = models.CharField(max_length=65, blank=False)
     imgs = models.ForeignKey(ProductImage, on_delete=models.CASCADE, null=True)
     description = models.TextField(blank=False)
     

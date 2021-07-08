@@ -73,7 +73,7 @@ function ProductPosting() {
 									<label className='flex'>
 										Product Title
 										<span className='text-xs ml-auto font-gray-400 font-normal my-auto'>
-											(255 characters at max)
+											(64 characters at max)
 										</span>
 									</label>
 									<input
@@ -84,7 +84,7 @@ function ProductPosting() {
 										name='product_title'
 										type='text'
 										placeholder='Product Title'
-										maxLength={255}
+										maxLength={64}
 										required
 									></input>
 								</div>
