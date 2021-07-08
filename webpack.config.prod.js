@@ -1,6 +1,7 @@
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const { default: merge } = require("webpack-merge");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 const common = require("./webpack.config");
 
@@ -20,4 +21,5 @@ module.exports = merge(common, {
 		maxEntrypointSize: 512000,
 		maxAssetSize: 512000,
 	},
+	plugins: [new CleanWebpackPlugin()],
 });
