@@ -2,6 +2,10 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+body {
+	@apply subpixel-antialiased;
+}
+
 .loading {
 	@apply rounded-full animate-spin w-6 h-6 border-2;
 	border-color: #e5e7eb;
