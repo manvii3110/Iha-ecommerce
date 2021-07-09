@@ -73,12 +73,8 @@ export default function Header(mainProp) {
 							>
 								{pages.map((page, index) => {
 									let classes =
-										"h-full transition-all px-2 flex text-base font-medium text-gray-500 hover:text-green-500 focus:text-gray-700 border-b-2 border-transparent focus:bg-gray-100 active:bg-gray-200 focus:border-green-500";
-									if (window.location.href.includes(page.href.replace("/", ""))) {
-										classes += ` ${
-											mainProp && mainProp.small == true ? "bg-gray-100" : ""
-										} text-gray-700 border-green-500 `;
-									}
+										"h-full transition-all px-2 flex text-base font-medium text-gray-500 hover:text-green-500 focus:text-gray-700 border-b-2 border-transparent focus:border-green-500";
+
 									return (
 										<>
 											<a key={index} className={classes} href={page.href}>
