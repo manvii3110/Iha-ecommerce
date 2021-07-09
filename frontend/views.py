@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.http.response import HttpResponseRedirect
 from django.urls import reverse
 from django.shortcuts import render
@@ -35,6 +36,6 @@ def registerView(request):
     return loadFile(request, filename='Register')
 
 
-@ensure_csrf_cookie
-def sellProductPage(request):
-    return loadFile(request, filename='sellProductPage')
+@login_required
+def ProductDashboard(request):
+    return loadFile(request, filename='ProductDashboard')

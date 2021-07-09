@@ -6,6 +6,7 @@ import {
 	HomeIcon,
 	MenuIcon,
 	PhoneIcon,
+	PresentationChartLineIcon,
 	ShoppingBagIcon,
 	XIcon,
 } from "@heroicons/react/outline";
@@ -18,25 +19,31 @@ const pages = [
 	{
 		name: "Home",
 		description: "Iha Ecommerce",
-		href: "./home",
+		href: "/",
 		icon: HomeIcon,
 	},
 	{
 		name: "Categories",
 		description: "Shop from various categories",
-		href: "./categories",
+		href: "/categories",
 		icon: ShoppingBagIcon,
+	},
+	{
+		name: "Dashboard",
+		description: "Manage Your Order and Favorite products",
+		href: "/dashboard",
+		icon: PresentationChartLineIcon,
 	},
 	{
 		name: "Sell",
 		description: "Start Selling on Iha Ecommerce",
-		href: "./sell",
+		href: "/dashboard/sell",
 		icon: BriefcaseIcon,
 	},
 	{
 		name: "Contact us",
 		description: "Quickly Solve your problems while shopping",
-		href: "./contactus",
+		href: "/contactus",
 		icon: PhoneIcon,
 	},
 ];
@@ -52,49 +59,29 @@ export default function Header(mainProp) {
 				<>
 					<div className='max-w-screen-2xl mx-auto px-2 sm:px-4'>
 						<div className='flex justify-between items-center md:justify-start md:space-x-10'>
-							<Suspense
-								fallback={<div className='Loading'></div>}
-							>
+							<Suspense fallback={<div className='Loading'></div>}>
 								<BrandLogo
-									small={
-										mainProp && mainProp.small == true
-											? true
-											: false
-									}
+									small={mainProp && mainProp.small == true ? true : false}
 								/>
 							</Suspense>
 
 							<div
 								className={`hidden -mb-0.5 md:flex md:space-x-10 ${
-									mainProp && mainProp.small == true
-										? "h-12"
-										: "h-20"
+									mainProp && mainProp.small == true ? "h-12" : "h-20"
 								}`}
 							>
 								{pages.map((page, index) => {
 									let classes =
 										"h-full transition-all px-2 flex text-base font-medium text-gray-500 hover:text-green-500 focus:text-gray-700 border-b-2 border-transparent focus:bg-gray-100 active:bg-gray-200 focus:border-green-500";
-									if (
-										window.location.href.includes(
-											page.href.replace("./", ""),
-										)
-									) {
+									if (window.location.href.includes(page.href.replace("/", ""))) {
 										classes += ` ${
-											mainProp && mainProp.small == true
-												? "bg-gray-100"
-												: ""
+											mainProp && mainProp.small == true ? "bg-gray-100" : ""
 										} text-gray-700 border-green-500 `;
 									}
 									return (
 										<>
-											<a
-												key={index}
-												className={classes}
-												href={page.href}
-											>
-												<p className='my-auto'>
-													{page.name}
-												</p>
+											<a key={index} className={classes} href={page.href}>
+												<p className='my-auto'>{page.name}</p>
 											</a>
 										</>
 									);
@@ -102,15 +89,9 @@ export default function Header(mainProp) {
 							</div>
 
 							<div className='hidden md:contents'>
-								<Suspense
-									fallback={<div className='Loading'></div>}
-								>
+								<Suspense fallback={<div className='Loading'></div>}>
 									<SignInButton
-										small={
-											mainProp && mainProp.small == true
-												? true
-												: false
-										}
+										small={mainProp && mainProp.small == true ? true : false}
 									/>
 								</Suspense>
 							</div>
@@ -119,10 +100,7 @@ export default function Header(mainProp) {
 							<div className='mr-2 -my-2 md:hidden'>
 								<Popover.Button className='bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500'>
 									<span className='sr-only'>Open menu</span>
-									<MenuIcon
-										className='h-6 w-6'
-										aria-hidden='true'
-									/>
+									<MenuIcon className='h-6 w-6' aria-hidden='true' />
 								</Popover.Button>
 							</div>
 							<Transition
@@ -144,13 +122,11 @@ export default function Header(mainProp) {
 										<div className='pt-5 pb-6 px-5'>
 											<div className='-mt-2 flex items-center justify-between'>
 												<div>
-													<BrandLogoImg className='h-16' />
+													<BrandLogoImg className='h-16 py-2' />
 												</div>
 												<div className='-mr-2'>
 													<Popover.Button className='bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500'>
-														<span className='sr-only'>
-															Close menu
-														</span>
+														<span className='sr-only'>Close menu</span>
 														<XIcon
 															className='h-6 w-6'
 															aria-hidden='true'

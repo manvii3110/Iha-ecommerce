@@ -31,7 +31,7 @@ export default function SignInButton(mainProp) {
 	const profile = [
 		{ title: "Your Profile", link: "" },
 		{ title: "Settings", link: "" },
-		{ title: "Sign out", link: "./signout" },
+		{ title: "Sign out", link: "/signout" },
 	];
 	const buttonTypes = [
 		<>
@@ -45,9 +45,7 @@ export default function SignInButton(mainProp) {
 									className='max-w-xs border-2  rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-green-800 focus:ring-white'
 									title={data && data.first_name}
 								>
-									<span className='sr-only'>
-										Open user menu
-									</span>
+									<span className='sr-only'>Open user menu</span>
 									<img
 										className='h-8 w-8 rounded-full bg-white p-2 text-gray-900'
 										src={data && data.userImage}
@@ -76,9 +74,7 @@ export default function SignInButton(mainProp) {
 												<a
 													href={item.link}
 													className={classNames(
-														active
-															? "bg-gray-100"
-															: "",
+														active ? "bg-gray-100" : "",
 														"block px-4 py-2 text-sm text-gray-700",
 													)}
 												>
@@ -132,12 +128,12 @@ export default function SignInButton(mainProp) {
 		</>,
 		<>
 			<div className='hidden md:flex items-center justify-end md:flex-1 lg:w-0'>
-				<a href='./signin' className='btn-primary'>
+				<a href='/signin' className='btn-primary'>
 					Sign in
 				</a>
 			</div>
 			<div className='flex md:hidden mx-5 pb-6'>
-				<a href='./signin' className='w-full btn-primary'>
+				<a href='/signin' className='w-full btn-primary'>
 					Sign in
 				</a>
 			</div>
