@@ -5,6 +5,7 @@ import Header from "./Components/Header";
 
 require("./static/index.scss");
 
+const SellerDashboardHome = lazy(() => import("./Pages/ProductDashboard/SellerDashboardHome"));
 const ProductPostingForm = lazy(() => import("./Pages/ProductDashboard/ProductPostingForm"));
 
 document.querySelector("body").className = " bg-gray-100";
@@ -17,8 +18,8 @@ function ProductPosting() {
 				<div className='flex min-h-full py-5 sm:py-10 px-4 sm:px-6 lg:px-16 z-40 '>
 					<div className='max-w-8xl mx-auto w-full space-y-8 '>
 						<Suspense fallback={<div className='loading'></div>}>
-							<Route exact path='/dasboard'>
-								This is dashboard
+							<Route exact path='/dashboard'>
+								<SellerDashboardHome />
 							</Route>
 							<Route path='/dashboard/sell'>
 								<ProductPostingForm />

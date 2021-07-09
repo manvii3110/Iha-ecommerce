@@ -8,6 +8,7 @@ import {
 	PhoneIcon,
 	PresentationChartLineIcon,
 	ShoppingBagIcon,
+	TruckIcon,
 	XIcon,
 } from "@heroicons/react/outline";
 import { BrandLogoImg } from "./BrandLogo";
@@ -19,7 +20,7 @@ const pages = [
 	{
 		name: "Home",
 		description: "Iha Ecommerce",
-		href: "/",
+		href: "/home",
 		icon: HomeIcon,
 	},
 	{
@@ -38,7 +39,7 @@ const pages = [
 		name: "Sell",
 		description: "Start Selling on Iha Ecommerce",
 		href: "/dashboard/sell",
-		icon: BriefcaseIcon,
+		icon: TruckIcon,
 	},
 	{
 		name: "Contact us",
