@@ -1,6 +1,5 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-from django.db.models.fields import BLANK_CHOICE_DASH
 
 
 
@@ -14,17 +13,13 @@ class User(AbstractUser):
     def serialize(self):
         return {
             "id": self.id,
-            "owner": self.owner.serialize(),
-            "p_message": self.p_message,
-            "p_likes": [user.username for user in self.p_likes.all()],
-            "p_created": self.p_created.strftime("%b %d %Y, %I:%M %p"),
-            "p_modified": self.p_modified.strftime("%b %d %Y, %I:%M %p"),
-            "p_adel": self.p_adel
+            "username": self.username,
+            "first_name": self.first_name,
+            "last_name": self.last_name,
+            "userImage": self.userImage.url,
         }
 
-class ProductImage(models.Model):
-    id =  models.AutoField(primary_key=True)
-    p_img = models.ImageField(upload_to='productImages/')
+
 
 
 class Product(models.Model):
@@ -33,8 +28,7 @@ class Product(models.Model):
         User, on_delete=models.CASCADE, related_name="products", null=False)
 
 
-    name = models.CharField(max_length=65, blank=False)
-    imgs = models.ForeignKey(ProductImage, on_delete=models.CASCADE, null=True)
+    productName = models.CharField(max_length=65, blank=False)
     description = models.TextField(blank=False)
     
     categories =[
@@ -45,29 +39,62 @@ class Product(models.Model):
     category = models.CharField(max_length=3, choices=categories, default='o')
 
     price  = models.FloatField(default=0.00)
-    time = models.DateTimeField(auto_now_add=True)
 
     keywords = models.TextField(default='', blank=False)
 
-    # These are not directly operated on creation
-    in_stock = models.BooleanField(default=True)
-    in_stock_time = models.DateTimeField(blank=True)
 
-    # This will allow web adim to block item
+    conditions = [
+        ('n', 'new'),
+        ('o', 'old')
+    ]
+    condition = models.CharField(max_length=1, choices=conditions, default='n')
+
+
+    # These are not directly operated on creation
+    no_of_stock = models.IntegerField(default=0)
+    in_stock_time = models.DateTimeField(blank=True, auto_now_add=True)
+
+
+    # This will allow web admin to block item
     block = models.BooleanField(default=False)
-    block_resason = models.TextField(blank=True)
+    block_reason = models.TextField(blank=True)
+
+
+    # Automatic Time Stamp    
+    created = models.DateTimeField(auto_now_add=True)
+    modified = models.DateTimeField(auto_now=True)
+
 
     def __str__(self):
-        return f"{self.name} {self.price}"
+        return f"{self.productName} {self.price}"
 
 
     def serialize(self):
         return {
             "id": self.id,
             "owner": self.owner.serialize(),
-            "p_message": self.p_message,
-            "p_likes": [user.username for user in self.p_likes.all()],
-            "p_created": self.p_created.strftime("%b %d %Y, %I:%M %p"),
-            "p_modified": self.p_modified.strftime("%b %d %Y, %I:%M %p"),
-            "p_adel": self.p_adel
+            "productName": self.productName,
+            "price": self.price,
+            "keywords":self.keywords,
+            "no_of_stock": self.no_of_stock,
+            "in_stock_time": self.in_stock_time,
+            "created": self.created.strftime("%b %d %Y, %I:%M %p"),
+            "modified": self.modified.strftime("%b %d %Y, %I:%M %p"),
         }
+
+
+
+class ProductImage(models.Model):
+    id =  models.AutoField(primary_key=True)
+    href = models.ImageField(upload_to='productImages/')
+    product = models.ForeignKey(Product, on_delete=models.CASCADE,related_name="images", null=True)
+ 
+    def __str__(self):
+        return f"{self.href.url}"
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "p_img": self.href.url
+        }
+
