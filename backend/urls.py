@@ -18,5 +18,7 @@ urlpatterns = [
     path('api/account/register', views.registerUserApi),
     path('api/check/user/<str:searchParameter>', views.check_database_of_user),
 
-    path('api/product/',views.productApi)
+    path('api/product/',views.productApi),
+    path('api/product/categories',views.prodcutCategoriesAPI),
+
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # This will send user Profile from media Folder
