@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import {MdFavoriteBorder} from 'react-icons/md'
+import StarRating from './Rating'
 require("./static/index.scss");
 
 /*-----------------------after positioning cards on app page according to below app.js this can be deleted this is written for reference only---------------------------
@@ -71,6 +72,7 @@ const Card_v = (props) => {
         <p className="text-gray-700 text-base">
         <span>&#8377;{props.price}</span>
         </p>
+        <StarRating />
       </div>
       <div className="px-11 pt-3 pb-4">
         <button type="button" className="transition duration-500 ease-in-out 
@@ -102,6 +104,7 @@ const Card_h = (props) => {
 			  <p className="text-gray-900 leading-none">{props.price}</p>
 			</div>
 		  </div>
+      <StarRating />
 		  <div className="flex items-center">
 			  <button type="button" className="transition duration-500 ease-in-out 
 						 border border-gray-600 text-gray-600 hover:bg-gray-600 hover:text-gray-100 rounded px-4 py-2 transform 
