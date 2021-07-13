@@ -11,7 +11,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import requires_csrf_token, ensure_csrf_cookie
 
 # For user creation
-from .models import Product, User
+from .models import Product, ProductImage, User
 
 
 # For check_authentication_status
@@ -21,6 +21,7 @@ from django.http import JsonResponse
 """ 
                 Section Index
     1.  Sign In and Out functionality, with json
+    2.  Product CRUD API
 """
 
 
@@ -71,7 +72,7 @@ def signOut(request):
 
 
 # This will check if the user is signed in or not
-# And send a JSON reposnse
+# And send a JSON response
 def check_authentication_status(request):
     if request.user.is_authenticated:
         return JsonResponse({"authenticated": True,
@@ -141,11 +142,19 @@ def registerUserApi(request):
         return HttpResponseRedirect(reverse("frontend:index"))
 
 
+""" 
+    2. Product CRUD API
+"""
+ 
+# CAUTION: This variable is related to storing products in database
+#          Editing this may affect in crash of the store
+categories =[
+    ('e', 'electronic'),
+    ('f', 'furniture'),
+    ('o', 'other')
+]
+
+
 def productApi(request):
     if request.method == "POST" and request.user.is_authenticated:
-        pass
-
-    # This is get method
-    else:
-        products = Product.objects.all()
         pass

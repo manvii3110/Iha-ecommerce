@@ -30,13 +30,8 @@ class Product(models.Model):
 
     productName = models.CharField(max_length=65, blank=False)
     description = models.TextField(blank=False)
-    
-    categories =[
-        ('o', 'other'),
-        ('e', 'electronic'),
-        ('f', 'furniture')
-    ]
-    category = models.CharField(max_length=3, choices=categories, default='o')
+   
+    category = models.CharField(max_length=10, default='o')
 
     price  = models.FloatField(default=0.00)
 
