@@ -193,4 +193,15 @@ def productApi(request, pk=None):
 
     # This is get method
     else:
-        pass
+        if pk:
+            p = Product.objects.get(id=pk).serialize()
+            p["images"] = [i.serialize() for i in Product.objects.get(id=pk).images.all()]
+            return JsonResponse({"data":p}, status=201)
+        else:
+            products = Product.objects.all()
+            data = []
+            for product in products:
+                p = product.serialize()
+                p["images"] = [i.serialize() for i in product.images.all()]
+                data.append(p)
+            return JsonResponse({"data":data})
