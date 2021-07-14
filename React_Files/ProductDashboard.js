@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, NavLink, Route } from "react-router-dom";
 import Header from "./Components/Header";
+import SubHeader from "./Components/SubHeader";
 
 require("./static/index.scss");
 
@@ -15,8 +16,7 @@ function ProductPosting() {
 		<>
 			<BrowserRouter>
 				<Header className='bg-white' />
-
-				<NavLink to='/dashboard/sell'>Sell</NavLink>
+				<SubHeader />
 				<div className='flex min-h-full py-5 sm:py-10 px-4 sm:px-6 lg:px-16 z-40 '>
 					<div className='max-w-8xl mx-auto w-full space-y-8 '>
 						<Suspense fallback={<div className='loading'></div>}>

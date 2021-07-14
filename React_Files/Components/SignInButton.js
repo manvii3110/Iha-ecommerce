@@ -15,7 +15,7 @@ export default function SignInButton(mainProp) {
 	// This will check for user authentication
 	const [number, setNumber] = useState(1);
 	useEffect(() => {
-		fetch("./api/account/check_status")
+		fetch("/api/account/check_status")
 			.then((res) => res.json())
 			.then((data) => {
 				console.log(data);
@@ -29,8 +29,8 @@ export default function SignInButton(mainProp) {
 			});
 	}, []);
 	const profile = [
-		{ title: "Your Profile", link: "" },
-		{ title: "Settings", link: "" },
+		{ title: "Your Profile", link: "/profile" },
+		{ title: "Settings", link: "/settings" },
 		{ title: "Sign out", link: "/signout" },
 	];
 	const buttonTypes = [
