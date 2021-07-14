@@ -76,11 +76,9 @@ export default function Header(mainProp) {
 										"h-full transition-all px-2 flex text-base font-medium text-gray-500 hover:text-green-500 focus:text-gray-700 border-b-2 border-transparent focus:border-green-500";
 
 									return (
-										<>
-											<a key={index} className={classes} href={page.href}>
-												<p className='my-auto'>{page.name}</p>
-											</a>
-										</>
+										<a key={index} className={classes} href={page.href}>
+											<p className='my-auto'>{page.name}</p>
+										</a>
 									);
 								})}
 							</div>
@@ -133,9 +131,9 @@ export default function Header(mainProp) {
 											</div>
 											<div className='mt-6'>
 												<nav className='grid gap-y-8'>
-													{pages.map((item) => (
+													{pages.map((item, index) => (
 														<a
-															key={item.name}
+															key={index}
 															href={item.href}
 															className='-m-3 p-3 flex items-center rounded-md hover:bg-gray-200'
 														>
