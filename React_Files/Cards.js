@@ -40,14 +40,14 @@ const Card_h = (props) => {
 		</div>
 		<div className="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
 		  <div className="mb-3 flex">
-			<div className="text-gray-900 font-bold text-xl mb-1">{props.title}</div>
+			<div className="text-black-900 font-bold text-xl mb-1">{props.title}</div>
 			<div className="pl-96 pt-2 text-lg"><MdFavoriteBorder/></div>	
 		  </div>
 		  <p className="text-gray-700 text-base">{props.description}</p>
 		  <div className="flex items-center mt-2">
 			<div className="text-sm">
 			
-			  <p className="text-gray-900 leading-none">{props.price}</p>
+			  <p className="text-blue-900 leading-none">{props.price}</p>
 			</div>
 		  </div>
       <StarRating />
