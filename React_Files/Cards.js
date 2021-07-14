@@ -12,7 +12,7 @@ const Card_v = (props) => {
       <img className=" w-full h-48" src={props.img} alt="Mountain" />
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2">{props.title}</div>
-        <p className="text-gray-700 text-base">
+        <p className="text-blue-700 text-base">
           {props.description}
         </p>
         <p className="text-gray-700 text-base">
