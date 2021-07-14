@@ -205,4 +205,3 @@ def productApi(request, pk=None):
                 p["images"] = [i.serialize() for i in product.images.all()]
                 data.append(p)
             return JsonResponse({"data":data})
-
