@@ -159,38 +159,6 @@ def prodcutCategoriesAPI(request):
     return JsonResponse({"categories": categories}, status=201)
 
 
-def productApi(request, pk=None):
+def productApi(request):
     if request.method == "POST" and request.user.is_authenticated:
-        
-        data = request.POST
-        owner = request.user
-        productName = data["productName"]
-        price = int(data["price"])
-        condition = data["condition"]
-        category = data["category"]
-        description = data["description"]
-        keywords = data["keywords"]
-
-        # Creating Product and ProductImg objects
-        p = Product.objects.create(
-            owner=owner,        productName=productName, 
-            description=description, 
-            category=category,  price=price, 
-            keywords=keywords,  condition=condition)
-
-        # for file_num in range(0, int(data["length"])):
-        #     ProductImage.objects.create(image=request.FILES.get(f"images{file_num}"), product=p)
-            
-        # images = request.FILES.getlist('images')
-        # for image in images:
-        #     ProductImage.objects.create(href=image, product=p)
-        # p.save()
-
-        # This is will send back to client
-        data = p.serialize()
-        data["images"] = [i.serialize() for i in p.images.all()]
-        return JsonResponse({"Product": "created", "data":data}, status=201)
-
-    # This is get method
-    else:
         pass
