@@ -159,7 +159,7 @@ def prodcutCategoriesAPI(request):
     return JsonResponse({"categories": categories}, status=201)
 
 
-def productApi(request):
+def productApi(request, pk=None):
     if request.method == "POST" and request.user.is_authenticated:
         
         data = request.POST
