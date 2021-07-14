@@ -1,1 +1,0 @@
-(self.webpackChunkiha_ecommerce=self.webpackChunkiha_ecommerce||[]).push([[507],{2507:(e,l,c)=>{"use strict";c.r(l),c.d(l,{default:()=>a});var r=c(7294);function a(){return r.createElement("div",null,"This is home page were all products will be listed")}}}]);

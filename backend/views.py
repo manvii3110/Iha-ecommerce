@@ -159,7 +159,7 @@ def prodcutCategoriesAPI(request):
     return JsonResponse({"categories": categories}, status=201)
 
 
-def productApi(request, pk=None):
+def productApi(request):
     if request.method == "POST" and request.user.is_authenticated:
         
         data = request.POST
@@ -205,3 +205,4 @@ def productApi(request, pk=None):
                 p["images"] = [i.serialize() for i in product.images.all()]
                 data.append(p)
             return JsonResponse({"data":data})
+

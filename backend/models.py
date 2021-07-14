@@ -81,15 +81,15 @@ class Product(models.Model):
 
 class ProductImage(models.Model):
     id =  models.AutoField(primary_key=True)
-    image = models.ImageField(upload_to='productImages/', null=False)
+    href = models.ImageField(upload_to='productImages/')
     product = models.ForeignKey(Product, on_delete=models.CASCADE,related_name="images", null=True)
  
     def __str__(self):
-        return f"{self.image.url}"
+        return f"{self.href.url}"
 
     def serialize(self):
         return {
             "id": self.id,
-            "p_img": self.image.url
+            "p_img": self.href.url
         }
 
