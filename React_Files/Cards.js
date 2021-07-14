@@ -4,60 +4,6 @@ import {MdFavoriteBorder} from 'react-icons/md'
 import StarRating from './Rating'
 require("./static/index.scss");
 
-/*-----------------------after positioning cards on app page according to below app.js this can be deleted this is written for reference only---------------------------
-import React from 'react'
-import Card_vertical from './Components/c_v'
-import Card_horizontal from'./Components/c_h'
-
-
-function App() {
-  return (
-    <>
-    <div className=" lg:pl-32 xl-lg:32 sm:px-28 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-1 " >
-      <Card_vertical
-        img="https://images.unsplash.com/photo-1612077330269-788066d5ba58?crop=entropy&cs=srgb&fm=jpg&ixid=MXwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHw&ixlib=rb-1.2.1&q=85"
-        title="Latest Product for Sell"
-        description="Fall Favorite • Boots"
-        price="45.00"
-      />
-
-      <Card_vertical
-        img="https://images.unsplash.com/photo-1581497396202-5645e76a3a8e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80"
-        title="Latest Product for Sell"
-        description="Sweater Season • Cozy"
-        price="29.95"
-      />
-      <Card_vertical
-        img="https://images.unsplash.com/photo-1475178626620-a4d074967452?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80"
-        title="Latest Product for Sell"
-        description="Demin • Verstile"
-        price="24.99"
-      />
-      <Card_vertical
-        img="https://images.unsplash.com/photo-1569235080412-01b4eefa5fbe?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80"
-        title="Latest Product for Sell"
-        description="Blouse • Lacey"
-        price="19.95"
-      />
-    </div>
-    <div className="container mx-auto my-auto justify-center content-center py-60 ">
-      <Card_horizontal
-        img="https://images.unsplash.com/photo-1612077330269-788066d5ba58?crop=entropy&cs=srgb&fm=jpg&ixid=MXwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHw&ixlib=rb-1.2.1&q=85"
-        title="Latest Product for Sell"
-        description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos eius ratione tempora eaque sequi modi ab, a porro 
-        molestiae est qui sit cupiditate reiciendis animi nemo veniam repudiandae temporibus cum, nisi tenetur iure! Labore reiciendis."
-        price="$200.00"
-      />  
-      
-    </div>
-
-    
-    </>
-  );
-}
-export default App;
-*/
-
 const Card_v = (props) => {
 	return (
 		<>
@@ -120,7 +66,43 @@ const Cards = () => {
 	return (
 		<div>
 			These are cards
-			<Card_v /> <Card_h />
+    
+    <div className=" lg:pl-32 xl-lg:32 sm:px-28 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-1 " >
+			<Card_v 
+      img="https://images.unsplash.com/photo-1581497396202-5645e76a3a8e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80"
+      title="Latest Product for Sell"
+      description="Sweater Season • Cozy"
+      price="29.95"
+      /> 
+      <Card_v
+        img="https://images.unsplash.com/photo-1581497396202-5645e76a3a8e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80"
+        title="Latest Product for Sell"
+        description="Sweater Season • Cozy"
+        price="29.95"
+      />
+      <Card_v
+        img="https://images.unsplash.com/photo-1475178626620-a4d074967452?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80"
+        title="Latest Product for Sell"
+        description="Demin • Verstile"
+        price="24.99"
+      />
+      <Card_v
+        img="https://images.unsplash.com/photo-1569235080412-01b4eefa5fbe?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80"
+        title="Latest Product for Sell"
+        description="Blouse • Lacey"
+        price="19.95"
+      />
+      </div>
+      <div className="container mx-auto my-auto justify-center content-center py-60 ">
+      <Card_h
+        img="https://images.unsplash.com/photo-1612077330269-788066d5ba58?crop=entropy&cs=srgb&fm=jpg&ixid=MXwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHw&ixlib=rb-1.2.1&q=85"
+        title="Latest Product for Sell"
+        description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos eius ratione tempora eaque sequi modi ab, a porro 
+        molestiae est qui sit cupiditate reiciendis animi nemo veniam repudiandae temporibus cum, nisi tenetur iure! Labore reiciendis."
+        price="$200.00"
+      />  
+      
+    </div>
 		</div>
 	);
 };
