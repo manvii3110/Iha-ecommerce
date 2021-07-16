@@ -1,0 +1,13 @@
+name: Database Tests
+
+on: push
+
+jobs:
+    test_project:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - name: Run Django unittest
+              run: |
+                  pip3 install -r requirements.txt
+                  python3 manage.py test
