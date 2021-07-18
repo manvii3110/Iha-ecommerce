@@ -136,7 +136,7 @@ const Card_v = (props) => {
     <div className=" border-r border-b border-l border-t border-gray-300 rounded-xl  lg:w-56 overflow bg-white transition-all duration-500 hover:shadow-lg transform hover:-translate-y-1 hover:scale-200 bg-transparent    cursor-pointer">
       <div className="rounded-t-xl">
       
-    <img src="https://th.bing.com/th/id/OIP.twWfHCeAm527WoPLmYx9lgHaHa?w=183&h=183&c=7&o=5&dpr=1.25&pid=1.7"
+    <img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=752&q=80"
       
       alt="man" 
       className="w-full h-full relative rounded-t-xl" />
@@ -178,7 +178,7 @@ const Card_h = (props) => {
       <div className="p-2  h-auto ">
     <div className=" border-r border-b border-l border-t border-gray-300 w-8/12 lg:max-w-8/12 lg:flex  h-auto lg:h-auto rounded-2xl transition-all duration-500 hover:shadow-lg transform hover:-translate-y-1 hover:scale-200  cursor-pointer ">
       <div className="h-auto lg:h-auto lg:w-52 flex-none bg-cover rounded-xl rounded-r-sm text-center overflow-hidden"> 
-      <img src="https://th.bing.com/th/id/OIP.twWfHCeAm527WoPLmYx9lgHaHa?w=183&h=183&c=7&o=5&dpr=1.25&pid=1.7"
+      <img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=752&q=80"
       
       alt="man" 
       className="w-full h-full"/>

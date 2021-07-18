@@ -431,7 +431,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
 /******/ 			if ({"vendors-node_modules_headlessui_react_dist_components_popover_popover_esm_js-node_modules_hea-222962":1,"React_Files_Components_Header_js":1}[chunkId]) return "App/runtime/" + chunkId + ".js";
-/******/ 			if (chunkId === "React_Files_Components_SignInButton_js") return "[object Set]/runtime/" + chunkId + ".js";
+/******/ 			if ({"vendors-node_modules_headlessui_react_dist_components_menu_menu_esm_js":1,"React_Files_Components_SignInButton_js":1}[chunkId]) return "[object Set]/runtime/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
