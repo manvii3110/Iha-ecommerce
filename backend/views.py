@@ -1,4 +1,3 @@
-from django.shortcuts import render, redirect
 
 # This will be helpful for converting a fetch request body to json
 import json
@@ -162,29 +161,16 @@ def prodcutCategoriesAPI(request):
 def productApi(request, pk=None):
     if request.method == "POST" and request.user.is_authenticated:
         
-        data = request.POST
-        owner = request.user
-        productName = data["productName"]
-        price = int(data["price"])
-        condition = data["condition"]
-        category = data["category"]
-        description = data["description"]
-        keywords = data["keywords"]
-
-        # Creating Product and ProductImg objects
+        # Creating Product
         p = Product.objects.create(
-            owner=owner,        productName=productName, 
-            description=description, 
-            category=category,  price=price, 
-            keywords=keywords,  condition=condition)
+            owner=request.user,                         productName=request.POST["productName"], 
+            description=request.POST["description"], 
+            category=request.POST["category"],          price=int(request.POST["price"]), 
+            keywords=request.POST["keywords"],          condition=request.POST["condition"])
 
-        # for file_num in range(0, int(data["length"])):
-        #     ProductImage.objects.create(image=request.FILES.get(f"images{file_num}"), product=p)
-            
-        # images = request.FILES.getlist('images')
-        # for image in images:
-        #     ProductImage.objects.create(href=image, product=p)
-        # p.save()
+        # Creating Product Image (s) objects
+        for file_num in range(0, int(request.POST["imageLength"])):
+            ProductImage.objects.create(image=request.FILES.get(f"img{file_num}"), product=p)
 
         # This is will send back to client
         data = p.serialize()

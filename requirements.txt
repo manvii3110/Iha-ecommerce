@@ -1,2 +1,2 @@
 Pillow
-djangorestframework
+Django

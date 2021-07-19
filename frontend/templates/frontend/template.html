@@ -8,6 +8,7 @@
 	</head>
 	<body>
         <div id="root"></div>
+        {% csrf_token %}
         {# This will load Scripts required for dom #}
         {% for file in files %} 
             {% if '.js' in file %}

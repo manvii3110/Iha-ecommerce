@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 export default function ProductPostingForm() {
@@ -28,21 +27,6 @@ export default function ProductPostingForm() {
 		formData = new FormData();
 
 		// Storing data from form to formData variable as object
-		// document.querySelectorAll("#CreateProductForm input").forEach((e) => {
-		// 	if (e.name != "images") {
-		// 		formData[e.name] = e.value;
-		// 	}
-		// });
-		// formData[document.querySelector("textarea").name] =
-		// 	document.querySelector("textarea").value;
-		// document.querySelectorAll("#CreateProductForm select").forEach((e) => {
-		// 	formData[e.name] = e.value;
-		// });
-		// formData["images"] = document.querySelector(
-		// 	'#CreateProductForm input[name="images"]',
-		// ).files;
-
-		// Append method
 		document.querySelectorAll("#CreateProductForm input").forEach((e) => {
 			if (e.name != "images") {
 				formData.append(e.name, e.value);
@@ -55,31 +39,26 @@ export default function ProductPostingForm() {
 		document.querySelectorAll("#CreateProductForm select").forEach((e) => {
 			formData.append(e.name, e.value);
 		});
-		// // Appending images
-		// for (let i in formData) {
-		// 	formData.append(
-		// 		"images" + i,
-		// 		document.querySelector('#CreateProductForm input[name="images"]').files[i],
-		// 	);
-		// }
-		// formData.append(
-		// 	"length",
-		// 	document.querySelector('#CreateProductForm input[name="images"]').files.length,
-		// );
 		formData.append(
-			"images",
-			document.querySelector('#CreateProductForm input[name="images"]').files,
+			"csrfmiddlewaretoken",
+			document.querySelector('input[name="csrfmiddlewaretoken"]').value,
 		);
-
-		// for (var key of formData.entries()) {
-		// 	console.log(key[0] + ", " + key[1]);
-		// }
+		// Appending images
+		for (let i in document.querySelector('#CreateProductForm input[name="images"]').files) {
+			formData.append(
+				"img" + i,
+				document.querySelector('#CreateProductForm input[name="images"]').files[i],
+			);
+		}
+		formData.append(
+			"imageLength",
+			document.querySelector('#CreateProductForm input[name="images"]').files.length,
+		);
 
 		// Changing submitBtn state to loading
 		const submitBtn = document.querySelector("button[type='submit']");
 		submitBtnData = submitBtn.innerHTML;
 		submitBtn.innerHTML = "<div class='loading'></div>";
-		console.log(formData);
 	};
 
 	// This will restore the sign btn state to previous one
@@ -99,13 +78,6 @@ export default function ProductPostingForm() {
 			},
 			body: formData,
 		})
-			// axios
-			// 	.post("/api/product/", formData, {
-			// 		headers: {
-			// 			"Content-Type": "multipart/form-data",
-			// 			"X-CSRFToken": csrftoken,
-			// 		},
-			// 	})
 			.then((r) => r.json())
 			.then((data) => {
 				/*
@@ -167,6 +139,8 @@ export default function ProductPostingForm() {
 								type='file'
 								accept='image/*'
 								className='absolute  top-0 h-full w-full cursor-pointer'
+								min={1}
+								max={5}
 								multiple
 							/>
 							<div className='space-y-1 text-center'>
@@ -264,6 +238,7 @@ export default function ProductPostingForm() {
 							<textarea
 								name='description'
 								className={`${inputClass} h-28`}
+								required
 							></textarea>
 						</div>
 						<div>
