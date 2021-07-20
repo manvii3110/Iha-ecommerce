@@ -1,5 +1,10 @@
+from django.contrib.auth.decorators import login_required
+from django.http.response import HttpResponseRedirect
+from django.urls import reverse
 from django.shortcuts import render
 
+# This is for authentication in production
+from django.views.decorators.csrf import ensure_csrf_cookie
 
 # This will import all Static files fro index function
 from django.contrib.staticfiles.utils import get_files
@@ -15,8 +20,11 @@ def loadFile(request, filename = 'App'):
     return render(request, 'frontend/template.html', {"files": files})
 
 
-def index(request):
+def home(request):
     return loadFile(request, filename='Home')
+
+def index(request):
+    return HttpResponseRedirect(reverse('frontend:home'))
 
 
 @ensure_csrf_cookie
@@ -29,5 +37,9 @@ def registerView(request):
     return loadFile(request, filename='Register')
 
 
-def createProduct(request):
-    return loadFile(request, filename='ProductPosting')
+@login_required
+def ProductDashboard(request):
+    return loadFile(request, filename='ProductDashboard')
+
+def cards(request):
+    return loadFile(request, filename='Cards')

@@ -1,4 +1,3 @@
-from django.shortcuts import render, redirect
 
 # This will be helpful for converting a fetch request body to json
 import json
@@ -11,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_protect, requires_csrf_token, ensure_csrf_cookie
 
 # For user creation
-from .models import User
+from .models import Product, ProductImage, User
 
 
 # For check_authentication_status
@@ -21,6 +20,7 @@ from django.http import JsonResponse
 """ 
                 Section Index
     1.  Sign In and Out functionality, with json
+    2.  Product CRUD API
 """
 
 
@@ -72,7 +72,7 @@ def signOut(request):
 
 
 # This will check if the user is signed in or not
-# And send a JSON reposnse
+# And send a JSON response
 def check_authentication_status(request):
     if request.user.is_authenticated:
         return JsonResponse({"authenticated": True,
@@ -142,3 +142,55 @@ def registerUserApi(request):
 
     else:
         return HttpResponseRedirect(reverse("frontend:index"))
+
+
+""" 
+    2. Product CRUD API
+"""
+ 
+# CAUTION: This variable is related to storing products in database
+#          Editing this may affect in crash of the store
+categories =[
+    ('e', 'electronic'),
+    ('f', 'furniture'),
+    ('o', 'other')
+]
+
+
+def prodcutCategoriesAPI(request):
+    return JsonResponse({"categories": categories}, status=201)
+
+
+def productApi(request, pk=None):
+    if request.method == "POST" and request.user.is_authenticated:
+        
+        # Creating Product
+        p = Product.objects.create(
+            owner=request.user,                         productName=request.POST["productName"], 
+            description=request.POST["description"], 
+            category=request.POST["category"],          price=int(request.POST["price"]), 
+            keywords=request.POST["keywords"],          condition=request.POST["condition"])
+
+        # Creating Product Image (s) objects
+        for file_num in range(0, int(request.POST["imageLength"])):
+            ProductImage.objects.create(image=request.FILES.get(f"img{file_num}"), product=p)
+
+        # This is will send back to client
+        data = p.serialize()
+        data["images"] = [i.serialize() for i in p.images.all()]
+        return JsonResponse({"Product": "created", "data":data}, status=201)
+
+    # This is get method
+    else:
+        if pk:
+            p = Product.objects.get(id=pk).serialize()
+            p["images"] = [i.serialize() for i in Product.objects.get(id=pk).images.all()]
+            return JsonResponse({"data":p}, status=201)
+        else:
+            products = Product.objects.all()
+            data = []
+            for product in products:
+                p = product.serialize()
+                p["images"] = [i.serialize() for i in product.images.all()]
+                data.append(p)
+            return JsonResponse({"data":data})

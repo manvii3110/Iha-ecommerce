@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { LockClosedIcon } from "@heroicons/react/solid";
-
-import { BrandLogoImg } from "./Components/BrandLogo";
+import { BrandLogoCircle } from "./Components/BrandLogo";
 
 require("./static/index.scss");
 
@@ -55,7 +54,7 @@ const SignInForm = () => {
 	// If any error is there, these will be useful
 	const [signInError, setSignInError] = useState("");
 	const [inputBorderClass, setInputBorderClass] = useState("border-gray-300");
-	let inputClass = `appearance-none rounded-none relative block w-full px-3 py-2 border ${inputBorderClass} placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm`;
+	let inputClass = `appearance-none rounded-none relative block w-full px-3 py-2 border ${inputBorderClass} placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm`;
 
 	// This will Sign the user in Iha portal
 	const SignIn = () => {
@@ -97,16 +96,11 @@ const SignInForm = () => {
 				name='description'
 				content='This is a sign in Page, where user will be able to sign in to its Iha Portal.'
 			></meta>
-			<div className='max-w-md w-full space-y-8'>
-				<div>
-					<BrandLogoImg />
-					<h2 className='mt-6 text-center text-3xl font-extrabold text-gray-900'>
-						Sign in to Iha account
-					</h2>
-				</div>
+			<div className='max-w-md w-full space-y-8 pb-0 sm:pb-16'>
+				<BrandLogoCircle />
 				<form
 					id='SignInForm'
-					className='mt-8 space-y-6 pb-0 sm:pb-16'
+					className='mt-8 space-y-6  border rounded-lg py-4 px-4 bg-white'
 					onSubmit={(e) => {
 						e.preventDefault();
 						SignIn();
@@ -114,6 +108,9 @@ const SignInForm = () => {
 					}}
 					method='POST'
 				>
+					<h2 className='mb-4 text-3xl font-normal text-gray-900'>
+						Sign In
+					</h2>
 					<input type='hidden' name='remember' defaultValue='true' />
 					<div className='rounded-md shadow-sm -space-y-px'>
 						<div>
@@ -157,7 +154,7 @@ const SignInForm = () => {
 							<input
 								name='remember_me'
 								type='checkbox'
-								className='h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded'
+								className='h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded'
 							/>
 							<label
 								htmlFor='remember_me'
@@ -170,7 +167,7 @@ const SignInForm = () => {
 						<div className='text-sm'>
 							<a
 								href='#'
-								className='font-medium text-indigo-600 hover:text-indigo-500'
+								className='font-medium text-green-600 hover:text-green-500'
 							>
 								Forgot your password?
 							</a>
@@ -178,13 +175,10 @@ const SignInForm = () => {
 					</div>
 
 					<div>
-						<button
-							type='submit'
-							className='group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
-						>
+						<button type='submit' className='w-full btn-primary'>
 							<span className='absolute left-0 inset-y-0 flex items-center pl-3'>
 								<LockClosedIcon
-									className='h-5 w-5 text-indigo-500 group-hover:text-indigo-400'
+									className='h-5 w-5 text-green-500 group-hover:text-green-400'
 									aria-hidden='true'
 								/>
 							</span>
@@ -192,6 +186,20 @@ const SignInForm = () => {
 						</button>
 					</div>
 				</form>
+
+				{/* Sign Up Button */}
+				<div>
+					<div className='flex mb-6 -mt-2'>
+						<hr className='w-2/6 my-auto border-gray-300' />
+						<h3 className='w-4/6 text-center'>
+							New at Iha ecommerce?
+						</h3>
+						<hr className='w-2/6 my-auto border-gray-300' />
+					</div>
+					<a className='w-full btn-secondary' href='./register'>
+						Create an Account
+					</a>
+				</div>
 			</div>
 		</div>
 	);

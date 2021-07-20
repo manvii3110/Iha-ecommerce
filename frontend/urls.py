@@ -3,7 +3,7 @@ from . import views
 
 # For favicon
 from django.views.generic.base import RedirectView
-favicon_view = RedirectView.as_view(url='/static/frontend/img/ihaIcon.svg', permanent=True)
+favicon_view = RedirectView.as_view(url='/static/frontend/svg/ihaIcon.svg', permanent=True)
 
 
 app_name = "frontend"
@@ -13,9 +13,15 @@ urlpatterns = [
     re_path(r'^favicon\.ico$', favicon_view),
 
     path('', views.index, name='index'),
-    path('signin', views.signInView),
+    path('home', views.home, name='home'),
+    path('signin', views.signInView, name='signInView'),
     path('register', views.registerView),
 
 
-    path('createproduct',views.createProduct)
+    path('dashboard',views.ProductDashboard),
+    path('dashboard/sell', views.ProductDashboard),
+    path('dashboard/products', views.ProductDashboard),
+    path('dashboard/orders', views.ProductDashboard),
+
+    path('cards', views.cards),
 ]

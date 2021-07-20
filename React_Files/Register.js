@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import { BrandLogoImg } from "./Components/BrandLogo";
+import { BrandLogoCircle } from "./Components/BrandLogo";
 import { InformationCircleIcon } from "@heroicons/react/solid";
 require("./static/index.scss");
 
@@ -51,7 +51,7 @@ const Register = () => {
 
 	const [signUpError, setSignUpError] = useState("");
 	const [emailError, setEmailError] = useState("");
-	let inputClass = `transition appearance-none rounded-lg relative block w-full px-3 py-2 border ${mainBorderClass} focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10`;
+	let inputClass = `transition appearance-none rounded-lg relative block w-full px-3 py-2 border ${mainBorderClass} focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10`;
 
 	// This will ensure if the both the passwords are same
 	const [passwordError, setPasswordError] = useState("");
@@ -107,17 +107,12 @@ const Register = () => {
 	};
 
 	return (
-		<div className='min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8'>
-			<div className='max-w-md w-full space-y-8'>
-				<div>
-					<BrandLogoImg />
-					<h2 className='mt-6 text-center text-3xl font-extrabold text-gray-900'>
-						Sign up to Iha account
-					</h2>
-				</div>
+		<div className='min-h-screen flex items-center justify-center bg-gray-50 py-12 sm:py-2 px-4 sm:px-6 lg:px-8'>
+			<div className='max-w-md w-full my-4 space-y-4'>
+				<BrandLogoCircle />
 				<form
 					id='SignUpForm'
-					className='mt-8 space-y-6 pb-0 sm:pb-16'
+					className='mt-8 space-y-6  border rounded-lg py-4 px-4 bg-white'
 					method='POST'
 					onSubmit={(e) => {
 						e.preventDefault();
@@ -125,11 +120,12 @@ const Register = () => {
 						return false;
 					}}
 				>
+					<h2 className='mb-4 text-3xl font-base text-gray-900'>
+						Create Account
+					</h2>
 					<div className='flex mb-4'>
 						<div className='w-1/2 mr-1'>
-							<label className='block text-grey-darker text-sm font-bold mb-2'>
-								First Name
-							</label>
+							<label>First Name</label>
 							<input
 								className={inputClass}
 								name='first_name'
@@ -139,9 +135,7 @@ const Register = () => {
 							></input>
 						</div>
 						<div className='w-1/2 ml-1'>
-							<label className='block text-grey-darker text-sm font-bold mb-2'>
-								Last Name
-							</label>
+							<label>Last Name</label>
 							<input
 								className={inputClass}
 								name='last_name'
@@ -152,9 +146,7 @@ const Register = () => {
 						</div>
 					</div>
 					<div className='mb-4'>
-						<label className='block text-grey-darker text-sm font-bold mb-2'>
-							Email Address
-						</label>
+						<label>Email Address</label>
 						<input
 							className={` ${
 								emailError != ""
@@ -182,9 +174,7 @@ const Register = () => {
 						)}
 					</div>
 					<div className='mb-4'>
-						<label className='block text-grey-darker text-sm font-bold mb-2'>
-							Password
-						</label>
+						<label>Password</label>
 						<input
 							className={
 								passwordError !== ""
@@ -202,9 +192,7 @@ const Register = () => {
 						></input>
 					</div>
 					<div className='mb-4'>
-						<label className='block text-grey-darker text-sm font-bold mb-2'>
-							Confirm Password
-						</label>
+						<label>Confirm Password</label>
 						<input
 							className={
 								passwordError !== ""
@@ -238,10 +226,23 @@ const Register = () => {
 						<button
 							id='registerBtn'
 							type='submit'
-							className='group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+							className='btn-primary w-full'
 						>
-							Sign Up
+							Create your Iha Account
 						</button>
+					</div>
+					{/* Sign In Button */}
+					<div>
+						<div className='flex mb-6'>
+							<hr className='w-2/6 my-auto border-gray-300' />
+							<h3 className='w-4/6 text-center'>
+								Already a User?
+							</h3>
+							<hr className='w-2/6 my-auto border-gray-300' />
+						</div>
+						<a className='btn-secondary' href='./signin'>
+							Sign In
+						</a>
 					</div>
 				</form>
 			</div>

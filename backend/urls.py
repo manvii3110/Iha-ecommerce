@@ -1,4 +1,4 @@
-from django.urls import  path
+from django.urls import path, include
 from . import views
 
 # This will be helpful for media files, like user profile image
@@ -13,8 +13,13 @@ urlpatterns = [
 
     # These are api routes
     path('api/account/signin', views.signIn, name="signIn"),
-    path('api/account/signout', views.signOut, name="signOut"),
+    path('signout', views.signOut, name="signOut"),
     path('api/account/check_status', views.check_authentication_status),
     path('api/account/register', views.registerUserApi),
-    path('api/check/user/<str:searchParameter>', views.check_database_of_user)
+    path('api/check/user/<str:searchParameter>', views.check_database_of_user),
+
+    path('api/product/',views.productApi),
+    path('api/product/categories',views.prodcutCategoriesAPI),
+    path('api/product/<int:pk>',views.productApi),
+
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # This will send user Profile from media Folder

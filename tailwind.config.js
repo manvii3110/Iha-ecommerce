@@ -12,7 +12,14 @@ module.exports = {
 		extend: {},
 	},
 	variants: {
-		extend: {},
+		extend: {
+			backgroundColor: ["active"],
+			borderColor: ["active"],
+			boxShadow: ["active"],
+			backdropBlur: ["hover"],
+			borderWidth: ["hover"],
+			backdropFilter: ["hover"],
+		},
 	},
 	plugins: [],
 };

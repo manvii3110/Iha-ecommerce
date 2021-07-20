@@ -124,6 +124,9 @@ AUTH_PASSWORD_VALIDATORS = [
 
 AUTH_USER_MODEL = "backend.User"
 
+LOGIN_URL = "frontend:signInView"
+
+
 # LOGIN_URL = "frontend:signIn_View"
 
 # Internationalization
