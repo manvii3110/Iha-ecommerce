@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import ReactDOM from 'react-dom'
 import {MdFavoriteBorder} from 'react-icons/md'
 import { Menu, Transition } from '@headlessui/react'
@@ -10,6 +10,33 @@ import {FaEllipsisV} from 'react-icons/fa'
 
 require("./static/index.scss");
 
+export const StarRating=()=>{
+    const [rating,setRating]=useState(null);
+    const [hover,setHover]=useState(null);
+    return(
+        <div className="flex mt-1 mb-2">
+            {[...Array(5)].map((star,i)=>{
+                const ratingValue=i+1;
+                return(
+                    <label>
+                        <input type="radio" name="rating"
+                        className="invisible"
+                         value={ratingValue} 
+                         onClick={()=>setRating(ratingValue)}
+                         
+                         
+                         />   
+                            <FaStar className="cursor-pointer transition duration-200  color"
+                             color={ratingValue <= (hover || rating) ? "#ffc107":"#e4e5e9"} 
+                             size={17}
+                             onMouseEnter={()=>setHover(ratingValue)}
+                         onMouseLeave={()=>setHover(null)}/>
+                    </label>
+                );
+            })}
+            </div>
+    );
+};
 export const MenuV=()=>{
 
   return (
@@ -147,12 +174,7 @@ const Card_v = (props) => {
         <div className="font-semibold text-xl mb-1 lg:text-2xl h-24">{props.title}</div>
         <div className="mb-2">
           <div className="flex flex-wrap my-1">
-          <span className=" fill-current text-yellow-400 text-lg m-0.5" ><FaStar/></span>
-          <span className="fill-current text-yellow-400 text-lg m-0.5"><FaStar/></span>
-          <span className="fill-current text-yellow-400 text-lg m-0.5"><FaStar/></span>
-          <span className=" fill-current text-gray-400 text-lg m-0.5"><FaStar/></span>
-          <span className="fill-current text-gray-400 text-lg m-0.5"><FaStar/></span>
-          <span className="text-blue-600 m-0.5 text-sm">(100)</span>
+          <StarRating/>
         </div>
         <p className=" mb-1">
         <span className="text-gray-600 font-semibold text-2xl">&#8377;2000</span>
@@ -194,12 +216,7 @@ const Card_h = (props) => {
            
         
         <div className="flex flex-wrap mt-7 mx-2">
-          <span className=" fill-current text-yellow-400 text-lg m-0.5" ><FaStar/></span>
-          <span className="fill-current text-yellow-400 text-lg m-0.5"><FaStar/></span>
-          <span className="fill-current text-yellow-400 text-lg m-0.5"><FaStar/></span>
-          <span className=" fill-current text-gray-400 text-lg m-0.5"><FaStar/></span>
-          <span className="fill-current text-gray-400 text-lg m-0.5"><FaStar/></span>
-          <span className="text-blue-600 m-0.5 text-sm">(100)</span>
+          <StarRating/>
         </div>
         
         <p className=" mb-1 mx-2">
@@ -266,3 +283,4 @@ const Cards = () => {
 
 ReactDOM.render(<Cards />, document.getElementById("root"));
 
+      
