@@ -9,34 +9,37 @@ import {FaEllipsisH} from 'react-icons/fa'
 import {FaEllipsisV} from 'react-icons/fa'
 
 require("./static/index.scss");
-
 export const StarRating=()=>{
-    const [rating,setRating]=useState(null);
+    const [rating,setRating]=useState(0);
     const [hover,setHover]=useState(null);
-    return(
+    return(   
         <div className="flex mt-1 mb-2">
             {[...Array(5)].map((star,i)=>{
                 const ratingValue=i+1;
                 return(
+                  <>
                     <label>
                         <input type="radio" name="rating"
                         className="invisible"
                          value={ratingValue} 
-                         onClick={()=>setRating(ratingValue)}
-                         
-                         
+                         onClick={()=>setRating(ratingValue)} 
                          />   
                             <FaStar className="cursor-pointer transition duration-200  color"
                              color={ratingValue <= (hover || rating) ? "#ffc107":"#e4e5e9"} 
-                             size={17}
+                             size={18}
                              onMouseEnter={()=>setHover(ratingValue)}
                          onMouseLeave={()=>setHover(null)}/>
-                    </label>
+                    </label> 
+                    
+                     </>                 
                 );
+               
             })}
-            </div>
+          <div className="ml-2 mt-4">({rating})</div>
+            </div>           
     );
 };
+
 export const MenuV=()=>{
 
   return (
