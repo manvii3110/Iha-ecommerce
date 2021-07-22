@@ -59,7 +59,19 @@ const Home = () => {
 					Recently Added Products
 				</h1>
 				<div className=' bg-green-50 px-2 sm:px-4'>
-					<div className='px-2 py-4 flex overflow-x-auto space-x-4 max-w-screen-2xl mx-auto '>
+					<div className='px-2 py-4 flex overflow-x-auto space-x-4 max-w-screen-2xl mx-auto overflow-x-auto'>
+						<CardV />
+						<CardV />
+						<CardV />
+						<CardV />
+						<CardV />
+						<CardV />
+						<CardV />
+						<CardV />
+						<CardV />
+						<CardV />
+						<CardV />
+						<CardV />
 						<CardV />
 						<CardV />
 						<CardV />

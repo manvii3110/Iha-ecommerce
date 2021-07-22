@@ -20,7 +20,7 @@ module.exports = {
 			borderWidth: ["hover"],
 			backdropFilter: ["hover"],
 			ringWidth: ["hover"],
-			ringOffsetColor: ["hover"],
+			ringColor: ["hover"],
 		},
 	},
 	plugins: [],
