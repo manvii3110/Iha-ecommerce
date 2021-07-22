@@ -4,6 +4,7 @@ import ReactDOM from "react-dom";
 require("./static/index.scss");
 
 import Header from "./Components/Header";
+import { CardV, CardH } from "./Components/Cards";
 
 const Gallery = lazy(() => import("./Components/Gallery"));
 
@@ -52,6 +53,21 @@ const Home = () => {
 					<Gallery />
 				</div>
 			</Suspense>
+
+			<div className='space-y-2'>
+				<h1 className='text-3xl p-2 sm:p-4  max-w-screen-2xl mx-auto '>
+					Recently Added Products
+				</h1>
+				<div className=' bg-green-50 px-2 sm:px-4'>
+					<div className='px-2 py-4 flex overflow-x-auto space-x-4 max-w-screen-2xl mx-auto '>
+						<CardV />
+						<CardV />
+						<CardV />
+						<CardV />
+					</div>
+				</div>
+			</div>
+
 			<div className='p-6'>
 				{data}
 				<h1 className='font-bold text-7xl'>Hi, {username}</h1>
