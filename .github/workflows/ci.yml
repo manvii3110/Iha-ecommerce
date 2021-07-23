@@ -3,7 +3,7 @@ name: Code Base Checks
 on: push
 
 jobs:
-    Checking if database is working or not:
+    tests:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
