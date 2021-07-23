@@ -3,11 +3,33 @@ name: Database Tests
 on: push
 
 jobs:
-    test_project:
+    Checking if database is working or not:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
-            - name: Run Django unittest
+            - name: Installing necessary Files for run
               run: |
-                  pip3 install -r requirements.txt
                   python3 manage.py test
+            - name: Running Test
+              run: |
+                  python3 manage.py test
+
+
+    Checking if Production Build for Frontend can be created:
+
+        runs-on: ubuntu-latest
+
+        strategy:
+
+            matrix:
+                node-version: [10.x, 12.x, 14.x, 15.x]
+
+        steps:
+
+        - uses: actions/checkout@v2
+        - name: Use Node.js ${{ matrix.node-version }}
+            uses: actions/setup-node@v2
+            with:
+                node-version: ${{ matrix.node-version }}
+        - run: npm ci
+        - run: npm run build --if-present
