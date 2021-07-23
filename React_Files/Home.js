@@ -10,6 +10,7 @@ import Footer from "./Components/index/Footer";
 import Loading from "./Components/Loading";
 
 const Gallery = lazy(() => import("./Components/Gallery"));
+const ProductBuy = lazy(() => import("./Pages/ProductBuy"));
 const RecentlyAddedProducts = lazy(() => import("./Components/Product/ProductListing"));
 
 const Home = () => {
@@ -32,6 +33,10 @@ const Home = () => {
 						<Suspense fallback={<Loading />}>
 							<Footer />
 						</Suspense>
+					</Route>
+
+					<Route path='/product/:id'>
+						<ProductBuy />
 					</Route>
 				</Suspense>
 			</BrowserRouter>

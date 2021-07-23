@@ -22,6 +22,9 @@ def loadFile(request, filename = 'App'):
 def home(request):
     return loadFile(request, filename='Home')
 
+def productView(request, id):
+    return loadFile(request, filename='Home')
+
 def index(request):
     return HttpResponseRedirect(reverse('frontend:home'))
 

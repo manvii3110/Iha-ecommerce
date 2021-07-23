@@ -1,3 +1,4 @@
+from backend.models import Product
 from django.urls import path, re_path
 from . import views
 
@@ -17,6 +18,7 @@ urlpatterns = [
     path('signin', views.signInView, name='signInView'),
     path('register', views.registerView),
 
+    path('product/<int:id>', views.productView),
 
     path('dashboard',views.ProductDashboard),
     path('dashboard/sell', views.ProductDashboard),
