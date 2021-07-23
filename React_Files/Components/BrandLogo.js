@@ -6,8 +6,20 @@ export const BrandLogoImg = (props) => {
 	return (
 		<>
 			<img
-				className={`h-12 w-12 my-2 my:0 ${props.className}`}
+				className={` h-12 w-12 my-2 my:0 ${props.className}`}
 				src='/static/frontend/img/Iha Unnathi logo Croped.jpeg'
+				alt='Iha Ecommerce Logo'
+			/>
+		</>
+	);
+};
+
+export const BrandLogoImgFull = (props) => {
+	return (
+		<>
+			<img
+				className={`h-24 w-24 my-2 my:0 ${props.className}`}
+				src='/static/frontend/img/Iha Unnathi logo.jpeg'
 				alt='Iha Ecommerce Logo'
 			/>
 		</>

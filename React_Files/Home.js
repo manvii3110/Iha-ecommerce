@@ -6,6 +6,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 require("./static/index.scss");
 
 import Header from "./Components/Header";
+import Footer from "./Components/index/Footer";
 import Loading from "./Components/Loading";
 
 const Gallery = lazy(() => import("./Components/Gallery"));
@@ -16,7 +17,7 @@ const Home = () => {
 		<>
 			<Header />
 			<BrowserRouter>
-				<Suspense fallback={<div>Loading...</div>}>
+				<Suspense fallback={<Loading />}>
 					<Route exact path='/home'>
 						<Suspense fallback={<Loading />}>
 							<div className='max-w-screen-2xl mx-auto p-2 sm:p-4'>
@@ -26,6 +27,10 @@ const Home = () => {
 
 						<Suspense fallback={<Loading />}>
 							<RecentlyAddedProducts />
+						</Suspense>
+
+						<Suspense fallback={<Loading />}>
+							<Footer />
 						</Suspense>
 					</Route>
 				</Suspense>
