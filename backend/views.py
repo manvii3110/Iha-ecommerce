@@ -220,7 +220,8 @@ def productApi(request, pk=None):
             p["images"] = [i.serialize() for i in Product.objects.get(id=pk).images.all()]
             return JsonResponse({"data":p}, status=201)
         else:
-            products = Product.objects.all()
+            # This will send recently added products
+            products = Product.objects.all().order_by("-created")[:15]
             data = []
             for product in products:
                 p = product.serialize()
