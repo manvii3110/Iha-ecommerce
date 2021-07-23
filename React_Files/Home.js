@@ -5,10 +5,10 @@ import { BrowserRouter, Route } from "react-router-dom";
 
 require("./static/index.scss");
 
-import Header from "./Components/Header";
-import Footer from "./Components/index/Footer";
 import Loading from "./Components/Loading";
 
+const Header = lazy(() => import("./Components/Header"));
+const Footer = lazy(() => import("./Components/index/Footer"));
 const Gallery = lazy(() => import("./Components/Gallery"));
 const ProductBuy = lazy(() => import("./Pages/ProductBuy"));
 const RecentlyAddedProducts = lazy(() => import("./Components/Product/ProductListing"));
@@ -16,7 +16,9 @@ const RecentlyAddedProducts = lazy(() => import("./Components/Product/ProductLis
 const Home = () => {
 	return (
 		<>
-			<Header />
+			<Suspense fallback={<Loading />}>
+				<Header />
+			</Suspense>
 			<BrowserRouter>
 				<Suspense fallback={<Loading />}>
 					<Route exact path='/home'>

@@ -1,4 +1,3 @@
-from backend.models import Product
 from django.urls import path, re_path
 from . import views
 
