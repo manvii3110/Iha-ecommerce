@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 
 export default function ProductPostingForm() {
 	let inputClass = `mt-1 appearance-none rounded-lg relative block w-full px-3 py-2 border placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-green-500 focus:border-green-500  focus-within:border-green-500 focus:z-10 sm:text-sm`;
@@ -120,9 +121,12 @@ export default function ProductPostingForm() {
 				}}
 				method='POST'
 			>
-				<div className='w-100'>
+				<div className='w-100 '>
 					<h2 className=' mb-4 text-xl sm:text-3xl font-medium sm:font-normal text-gray-900 border-b pb-2'>
-						Create a new Product Listing
+						<NavLink className='no-underline hover:underline' to='/dashboard'>
+							Products
+						</NavLink>{" "}
+						/ <span className=''>Create a new Product Listing</span>
 					</h2>
 				</div>
 				{errorMessage != "" && (

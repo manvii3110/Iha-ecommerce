@@ -228,3 +228,19 @@ def productApi(request, pk=None):
                 p["images"] = [i.serialize() for i in product.images.all()]
                 data.append(p)
             return JsonResponse({"data":data})
+
+
+def myProductsAPI(request):
+    if request.user.is_authenticated:
+        # This will send recently added products
+        products = request.user.products.all().order_by("-created")[:15]
+        data = []
+        for product in products:
+            p = product.serialize()
+            p["images"] = [i.serialize() for i in product.images.all()]
+            data.append(p)
+        return JsonResponse({"data":data})
+
+    # User will not be allowed if they have not logged into the website
+    else:
+        return JsonResponse("Forbidden", status=403, safe=False)

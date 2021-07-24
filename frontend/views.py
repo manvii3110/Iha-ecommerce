@@ -40,7 +40,7 @@ def registerView(request):
 
 
 @login_required
-def ProductDashboard(request):
+def ProductDashboard(request, pageName=None):
     return loadFile(request, filename='ProductDashboard')
 
 def cards(request):

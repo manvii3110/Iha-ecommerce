@@ -20,9 +20,7 @@ urlpatterns = [
     path('product/<int:id>', views.productView),
 
     path('dashboard',views.ProductDashboard),
-    path('dashboard/sell', views.ProductDashboard),
-    path('dashboard/products', views.ProductDashboard),
-    path('dashboard/orders', views.ProductDashboard),
+    path('dashboard/<str:pageName>', views.ProductDashboard),
 
     path('cards', views.cards),
 ]
