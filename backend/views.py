@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import requires_csrf_token, ensure_csrf_cookie
 
 # For user creation
-from .models import Product, ProductImage, User
+from .models import Product, ProductImage, User, View
 
 
 # For check_authentication_status
@@ -216,9 +216,14 @@ def productApi(request, pk=None):
     # This is get method
     else:
         if pk:
-            p = Product.objects.get(id=pk).serialize()
-            p["images"] = [i.serialize() for i in Product.objects.get(id=pk).images.all()]
-            return JsonResponse({"data":p}, status=201)
+            product = Product.objects.get(id=pk)
+
+            # Counting Views
+            View.objects.create(viewer= request.user if request.user.is_authenticated else None, product=product)
+
+            d = product.serialize()
+            d["images"] = [i.serialize() for i in product.images.all()]
+            return JsonResponse({"data":d}, status=201)
         else:
             # This will send recently added products
             products = Product.objects.all().order_by("-created")[:15]
@@ -238,6 +243,7 @@ def myProductsAPI(request):
         for product in products:
             p = product.serialize()
             p["images"] = [i.serialize() for i in product.images.all()]
+            p["views"] = product.views.all().count()
             data.append(p)
         return JsonResponse({"data":data})
 

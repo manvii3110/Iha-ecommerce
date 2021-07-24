@@ -41,6 +41,7 @@ export default function SellerDashboardHome() {
 						{data.map((d, index) => (
 							<>
 								<tr className='border-t hover:bg-gray-200 px-2 py-1' key={index}>
+									{/* Title */}
 									<td className='flex max-h-12 '>
 										<div className='h-18 w-24 flex'>
 											<img
@@ -55,8 +56,11 @@ export default function SellerDashboardHome() {
 											{d.productName}
 										</a>
 									</td>
+									{/* Views */}
+									<td className='text-center'>{d.views}</td>
+									{/* Orders */}
 									<td className='text-center'>0</td>
-									<td className='text-center'>0</td>
+									{/* Cancellations */}
 									<td className='text-center'>0</td>
 								</tr>
 							</>

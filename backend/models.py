@@ -93,3 +93,12 @@ class ProductImage(models.Model):
             "url": self.image.url
         }
 
+
+class View(models.Model):
+    viewer = models.ForeignKey(
+        User, on_delete=models.PROTECT, related_name="myViews", null=True)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE,related_name="views", null=False)
+
+    def serialize(self):
+        return {"product": self.product.id}
+        
