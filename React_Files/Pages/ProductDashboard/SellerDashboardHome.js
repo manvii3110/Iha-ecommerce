@@ -28,13 +28,13 @@ export default function SellerDashboardHome() {
 			<div className='bg-white rounded-lg border overflow-hidden'>
 				<div className='px-3 py-2 text-xl'>Active Listings</div>
 
-				<table class='table-fixed bg-white'>
+				<table className='table-fixed bg-white'>
 					<thead>
 						<tr className='text-gray-700 uppercase text-xs py-4 border-t'>
-							<th class='w-9/12 px-3 py-2'>Title</th>
-							<th class='w-1/12 px-3 py-2'>Views</th>
-							<th class='w-1/12 px-3 py-2'>Orders</th>
-							<th class='w-1/12 px-3 py-2'>Cancellations</th>
+							<th className='w-9/12 px-3 py-2'>Title</th>
+							<th className='w-1/12 px-3 py-2'>Views</th>
+							<th className='w-1/12 px-3 py-2'>Orders</th>
+							<th className='w-1/12 px-3 py-2'>Cancellations</th>
 						</tr>
 					</thead>
 					<tbody>

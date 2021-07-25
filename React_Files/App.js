@@ -24,14 +24,13 @@ class App extends Component {
 					<h1>This si main Page div</h1>
 					<div className='text-black font-bold rounded-lg border shadow-lg p-10 m-20 bg-white dark:bg-gray-800'>
 						<div>
-							Webpack 5 boilerplate with React 17, Tailwind 2,
-							using babel, sass, with a hot dev server and an
-							optimized production build.
+							Webpack 5 boilerplate with React 17, Tailwind 2, using babel, sass, with
+							a hot dev server and an optimized production build.
 							<div className={"container mx-auto px-4"}>
-								<div class='bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 '>
+								<div className='bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 '>
 									{" "}
-									This is my graident apps This is new
-									gradient But now this laso new one
+									This is my graident apps This is new gradient But now this laso
+									new one
 								</div>
 							</div>
 						</div>

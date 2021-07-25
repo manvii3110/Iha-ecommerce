@@ -20,8 +20,8 @@ export default function RecentlyAddedProducts() {
 			</h1>
 			<div className=' bg-green-50 px-2 sm:px-4'>
 				<div className='px-2 py-4 grid-flow-col grid  overflow-x-auto space-x-4 max-w-screen-2xl mx-auto overflow-x-auto'>
-					{data.map((d) => (
-						<CardV data={d} />
+					{data.map((d, index) => (
+						<CardV key={index} data={d} />
 					))}
 					<div className='h-full w-2'></div>
 				</div>
