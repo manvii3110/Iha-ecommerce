@@ -216,12 +216,16 @@ def productApi(request, pk=None):
     # This is get method
     else:
         if pk:
-            product = Product.objects.get(id=pk)
+            try:
+                product = Product.objects.get(id=pk)
+            except: 
+                return JsonResponse("Product Not Found", status=404, safe=False)
 
             # Counting Views
             View.objects.create(viewer= request.user if request.user.is_authenticated else None, product=product)
 
             d = product.serialize()
+            d["description"] = product.description
             d["images"] = [i.serialize() for i in product.images.all()]
             return JsonResponse({"data":d}, status=201)
         else:
