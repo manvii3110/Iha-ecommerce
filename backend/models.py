@@ -99,6 +99,12 @@ class View(models.Model):
         User, on_delete=models.PROTECT, related_name="myViews", null=True)
     product = models.ForeignKey(Product, on_delete=models.CASCADE,related_name="views", null=False)
 
+    # Automatic Time Stamp    
+    created = models.DateTimeField(auto_now_add=True)
+
     def serialize(self):
-        return {"product": self.product.id}
+        return {
+            "product": self.product.id,
+            "created": self.created.strftime("%b %d %Y, %I:%M %p")
+        }
         

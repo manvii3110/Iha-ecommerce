@@ -11,7 +11,25 @@ body {
 	border-color: #e5e7eb;
 	border-top-color: #6b7280;
 }
+/* custom scrollbar */
+::-webkit-scrollbar {
+	width: 20px;
+}
 
+::-webkit-scrollbar-track {
+	background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #d6dee1;
+	border-radius: 20px;
+	border: 6px solid transparent;
+	background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background-color: #a8bbbf;
+}
 label {
 	@apply block text-sm font-medium text-gray-700 mb-2;
 }
