@@ -18,6 +18,8 @@ export default function ProductBuy() {
 			id:{data.id}
 			description {data.description}
 			created {data.created}
+			{data["images"] &&
+				data["images"].map((e) => <img src={e["url"]} className='w-16 h-16' />)}
 		</>
 	) : (
 		<div>Product id is{id}</div>
