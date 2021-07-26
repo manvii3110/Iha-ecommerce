@@ -43,5 +43,11 @@ def registerView(request):
 def ProductDashboard(request, pageName=None):
     return loadFile(request, filename='ProductDashboard')
 
+
+def contactUs(request):
+    return loadFile(request, filename="ContactUs")
+
+
+# These are temporary urls 
 def cards(request):
     return loadFile(request, filename='Cards')

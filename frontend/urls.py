@@ -14,6 +14,8 @@ urlpatterns = [
 
     path('', views.index, name='index'),
     path('home', views.home, name='home'),
+    path('contactus', views.contactUs),
+
     path('signin', views.signInView, name='signInView'),
     path('register', views.registerView),
 
@@ -22,5 +24,6 @@ urlpatterns = [
     path('dashboard',views.ProductDashboard),
     path('dashboard/<str:pageName>', views.ProductDashboard),
 
+    # These are temporary urls
     path('cards', views.cards),
 ]

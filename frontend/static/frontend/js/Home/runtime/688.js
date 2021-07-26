@@ -1,1 +1,0 @@
-(self.webpackChunkiha_ecommerce=self.webpackChunkiha_ecommerce||[]).push([[688],{5688:(e,c,r)=>{"use strict";r.r(c),r.d(c,{default:()=>i});var u=r(7294),a=r(6550);function i(){var e=(0,a.UO)().id;return u.createElement("div",null,"Product id is",e)}}}]);

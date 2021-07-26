@@ -95,6 +95,7 @@ class ProductImage(models.Model):
 
 
 class View(models.Model):
+    id =  models.AutoField(primary_key=True)
     viewer = models.ForeignKey(
         User, on_delete=models.PROTECT, related_name="myViews", null=True)
     product = models.ForeignKey(Product, on_delete=models.CASCADE,related_name="views", null=False)
@@ -108,3 +109,17 @@ class View(models.Model):
             "created": self.created.strftime("%b %d %Y, %I:%M %p")
         }
         
+
+class Enquiry(models.Model):
+    id =  models.AutoField(primary_key=True)
+    name = models.CharField(max_length=128, null=False)
+    email = models.EmailField(null=False)
+    message = models.TextField(null=True)
+
+    # Automatic Time Stamp    
+    created = models.DateTimeField(auto_now_add=True)
+
+    read = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name

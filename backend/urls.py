@@ -18,6 +18,8 @@ urlpatterns = [
     path('api/account/register', views.registerUserApi),
     path('api/check/user/<str:searchParameter>', views.check_database_of_user),
 
+    path('api/contactus/', views.ContactUsAPI),
+
     path('api/product/',views.productApi),
     path('api/product/categories',views.prodcutCategoriesAPI),
     path('api/product/<int:pk>',views.productApi),

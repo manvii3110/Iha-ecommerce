@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import requires_csrf_token, ensure_csrf_cookie
 
 # For user creation
-from .models import Product, ProductImage, User, View
+from .models import Enquiry, Product, ProductImage, User, View
 
 
 # For check_authentication_status
@@ -21,6 +21,7 @@ from django.http import JsonResponse
                 Section Index
     1.  Sign In and Out functionality, with json
     2.  Product CRUD API
+    3.  Contact Us Api
 """
 
 
@@ -254,3 +255,22 @@ def myProductsAPI(request):
     # User will not be allowed if they have not logged into the website
     else:
         return JsonResponse("Forbidden", status=403, safe=False)
+
+
+
+""" 
+    3. Contact Us Api 
+"""
+ 
+def ContactUsAPI(request):
+    if request.method == "POST":
+        name = request.POST["name"]
+        email = request.POST["email"]
+        message = request.POST["message"]
+
+        Enquiry.objects.create(name=name, email=email, message=message)
+
+        return JsonResponse({"message": "We will contact you soon"}, status=202)
+
+    else:
+        return JsonResponse("Method not allowed", status=405, safe=False)
