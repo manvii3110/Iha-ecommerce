@@ -257,6 +257,22 @@ def myProductsAPI(request):
         return JsonResponse("Forbidden", status=403, safe=False)
 
 
+def myProductViewsAPI(request):
+    if request.user.is_authenticated:
+        products = request.user.products.all().order_by("-created")[:15]
+        data = []
+        for product in products:
+            p = {"views": [v.serialize() for v in product.views.all()]}
+            p['productName'] = product.productName
+            p['productId'] = product.id
+            data.append(p)
+
+        return JsonResponse({"data":data})
+
+        # User will not be allowed if they have not logged into the website
+    else:
+        return JsonResponse("Forbidden", status=403, safe=False)
+
 
 """ 
     3. Contact Us Api 

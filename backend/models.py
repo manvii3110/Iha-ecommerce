@@ -105,7 +105,6 @@ class View(models.Model):
 
     def serialize(self):
         return {
-            "product": self.product.id,
             "created": self.created.strftime("%b %d %Y, %I:%M %p")
         }
         
