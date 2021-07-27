@@ -8,7 +8,7 @@ require("./static/index.scss");
 import Loading from "./Components/Loading";
 
 const Header = lazy(() => import("./Components/Header"));
-const Footer = lazy(() => import("./Components/index/Footer"));
+const Footer = lazy(() => import("./Components/Footer"));
 const Gallery = lazy(() => import("./Components/Gallery"));
 const ProductBuy = lazy(() => import("./Pages/ProductBuy"));
 const RecentlyAddedProducts = lazy(() => import("./Components/Product/ProductListing"));

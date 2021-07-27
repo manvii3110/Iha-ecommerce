@@ -1,0 +1,1 @@
+(self.webpackChunkiha_ecommerce=self.webpackChunkiha_ecommerce||[]).push([[574],{2574:(e,c,n)=>{"use strict";n.r(c),n.d(c,{default:()=>t});var r=n(7294);const t=function(){return r.createElement("div",null,"Blocked")}}}]);

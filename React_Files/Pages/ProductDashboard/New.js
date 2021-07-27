@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
-export default function ProductPostingForm() {
+export default function New() {
 	let inputClass = `mt-1 appearance-none rounded-lg relative block w-full px-3 py-2 border placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-green-500 focus:border-green-500  focus-within:border-green-500 focus:z-10 sm:text-sm`;
 
 	function getCookie(name) {
@@ -114,7 +114,7 @@ export default function ProductPostingForm() {
 		<>
 			<form
 				id='CreateProductForm'
-				className=' max-w-6xl mx-auto'
+				className=' w-full max-w-6xl mx-auto min-h-screen'
 				onSubmit={(e) => {
 					e.preventDefault();
 					submitForm();
@@ -123,9 +123,9 @@ export default function ProductPostingForm() {
 			>
 				<div className='w-100 '>
 					<h2 className=' mb-4 text-xl sm:text-3xl font-medium sm:font-normal text-gray-900 border-b pb-2'>
-						<NavLink className='no-underline hover:underline' to='/dashboard'>
+						<a className='no-underline hover:underline' href='/dashboard/products/'>
 							Products
-						</NavLink>{" "}
+						</a>{" "}
 						/ <span className=''>Create a new Product Listing</span>
 					</h2>
 				</div>

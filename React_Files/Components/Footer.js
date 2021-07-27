@@ -1,6 +1,6 @@
 import React from "react";
-import { BrandLinkStrip } from "../BrandLinks";
-import { BrandLogoImgFull } from "../BrandLogo";
+import { BrandLinkStrip } from "./BrandLinks";
+import { BrandLogoImgFull } from "./BrandLogo";
 
 export default function Footer() {
 	return (

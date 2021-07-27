@@ -40,6 +40,11 @@ def registerView(request):
 
 
 @login_required
+def Dashboard(request, pageName=None):
+    return loadFile(request, filename='Dashboard')
+
+
+@login_required
 def ProductDashboard(request, pageName=None):
     return loadFile(request, filename='ProductDashboard')
 
