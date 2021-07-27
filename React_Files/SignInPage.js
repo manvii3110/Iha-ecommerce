@@ -15,9 +15,7 @@ const SignInForm = () => {
 				const cookie = cookies[i].trim();
 				// Does this cookie string begin with the name we want?
 				if (cookie.substring(0, name.length + 1) === name + "=") {
-					cookieValue = decodeURIComponent(
-						cookie.substring(name.length + 1),
-					);
+					cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
 					break;
 				}
 			}
@@ -36,18 +34,14 @@ const SignInForm = () => {
 		});
 
 		// Changing singinbtn state to loading
-		const signBtn = document.querySelector(
-			'#SignInForm button[type="submit"]',
-		);
+		const signBtn = document.querySelector('#SignInForm button[type="submit"]');
 		signBtnData = signBtn.innerHTML;
 		signBtn.innerHTML = "<div class='loading'></div>";
 	};
 
 	// This will restore the sign btn state to previous one
 	const ResetSignBtn = () => {
-		const signBtn = document.querySelector(
-			'#SignInForm button[type="submit"]',
-		);
+		const signBtn = document.querySelector('#SignInForm button[type="submit"]');
 		signBtn.innerHTML = signBtnData;
 	};
 
@@ -63,7 +57,7 @@ const SignInForm = () => {
 		setInputBorderClass("border-gray-300");
 
 		// fetching data from server
-		fetch("./api/account/signin", {
+		fetch("/api/account/signin/", {
 			method: "POST",
 			body: JSON.stringify(formData),
 			headers: { "X-CSRFToken": csrftoken },
@@ -107,9 +101,7 @@ const SignInForm = () => {
 					}}
 					method='POST'
 				>
-					<h2 className='mb-4 text-3xl font-normal text-gray-900'>
-						Sign In
-					</h2>
+					<h2 className='mb-4 text-3xl font-normal text-gray-900'>Sign In</h2>
 					<input type='hidden' name='remember' defaultValue='true' />
 					<div className='rounded-md shadow-sm -space-y-px'>
 						<div>
@@ -141,9 +133,7 @@ const SignInForm = () => {
 					</div>
 
 					{signInError !== "" ? (
-						<div className='text-red-600 text-center font-bold'>
-							{signInError}
-						</div>
+						<div className='text-red-600 text-center font-bold'>{signInError}</div>
 					) : (
 						<></>
 					)}
@@ -164,10 +154,7 @@ const SignInForm = () => {
 						</div>
 
 						<div className='text-sm'>
-							<a
-								href='#'
-								className='font-medium text-green-600 hover:text-green-500'
-							>
+							<a href='#' className='font-medium text-green-600 hover:text-green-500'>
 								Forgot your password?
 							</a>
 						</div>
@@ -190,9 +177,7 @@ const SignInForm = () => {
 				<div>
 					<div className='flex mb-6 -mt-2'>
 						<hr className='w-2/6 my-auto border-gray-300' />
-						<h3 className='w-4/6 text-center'>
-							New at Iha ecommerce?
-						</h3>
+						<h3 className='w-4/6 text-center'>New at Iha ecommerce?</h3>
 						<hr className='w-2/6 my-auto border-gray-300' />
 					</div>
 					<a className='w-full btn-secondary' href='./register'>

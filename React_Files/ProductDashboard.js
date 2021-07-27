@@ -28,7 +28,6 @@ export default function ProductDashboard() {
 			<Suspense fallback={<Loading />}>
 				<Header className='bg-white' />
 			</Suspense>
-
 			<div className='flex min-h-full py-5 sm:py-10 px-4 sm:px-6 lg:px-16 z-40 '>
 				<Route exact path='/dashboard/products/new/'>
 					<Suspense fallback={<Loading />}>

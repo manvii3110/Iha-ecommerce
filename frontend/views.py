@@ -40,8 +40,8 @@ def registerView(request):
 
 
 @login_required
-def Dashboard(request, pageName=None):
-    return loadFile(request, filename='Dashboard')
+def Dashboard(request):
+    return loadFile(request, filename='MainDashboard')
 
 
 @login_required
