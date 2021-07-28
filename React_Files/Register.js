@@ -13,9 +13,7 @@ const Register = () => {
 				const cookie = cookies[i].trim();
 				// Does this cookie string begin with the name we want?
 				if (cookie.substring(0, name.length + 1) === name + "=") {
-					cookieValue = decodeURIComponent(
-						cookie.substring(name.length + 1),
-					);
+					cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
 					break;
 				}
 			}
@@ -23,6 +21,12 @@ const Register = () => {
 		return cookieValue;
 	}
 	const csrftoken = getCookie("csrftoken");
+
+	let csrfcsrfmiddlewaretoken = "";
+	useEffect(() => {
+		csrfcsrfmiddlewaretoken = document.querySelector("csrfcsrfmiddlewaretoken").value;
+		document.querySelector("csrfcsrfmiddlewaretoken").remove();
+	}, []);
 
 	let formData = {}; // This will store important data send to server
 	let registerBtnData = ""; // This will store restore state for sign in button
@@ -32,6 +36,7 @@ const Register = () => {
 		document.querySelectorAll("#SignUpForm input").forEach((e) => {
 			formData[e.name] = e.value;
 		});
+		formData["csrfcsrfmiddlewaretoken"] = csrfcsrfmiddlewaretoken;
 
 		// Changing singinbtn state to loading
 		const registerBtn = document.querySelector("#registerBtn");
@@ -120,9 +125,7 @@ const Register = () => {
 						return false;
 					}}
 				>
-					<h2 className='mb-4 text-3xl font-base text-gray-900'>
-						Create Account
-					</h2>
+					<h2 className='mb-4 text-3xl font-base text-gray-900'>Create Account</h2>
 					<div className='flex mb-4'>
 						<div className='w-1/2 mr-1'>
 							<label>First Name</label>
@@ -150,10 +153,7 @@ const Register = () => {
 						<input
 							className={` ${
 								emailError != ""
-									? inputClass.replace(
-											mainBorderClass,
-											errorBorderClass,
-									  )
+									? inputClass.replace(mainBorderClass, errorBorderClass)
 									: inputClass
 							}`}
 							name='email'
@@ -178,10 +178,7 @@ const Register = () => {
 						<input
 							className={
 								passwordError !== ""
-									? inputClass.replace(
-											mainBorderClass,
-											errorBorderClass,
-									  )
+									? inputClass.replace(mainBorderClass, errorBorderClass)
 									: inputClass
 							}
 							name='password'
@@ -196,10 +193,7 @@ const Register = () => {
 						<input
 							className={
 								passwordError !== ""
-									? inputClass.replace(
-											mainBorderClass,
-											errorBorderClass,
-									  )
+									? inputClass.replace(mainBorderClass, errorBorderClass)
 									: inputClass
 							}
 							name='confirmuserpassword'
@@ -212,10 +206,7 @@ const Register = () => {
 					{passwordError !== "" ||
 					(signUpError !== "" && !signUpError.includes("mail")) ? (
 						<div className='text-red-600 text-sm font-bold flex'>
-							<InformationCircleIcon
-								className='h-5 w-5 mr-2'
-								aria-hidden='true'
-							/>
+							<InformationCircleIcon className='h-5 w-5 mr-2' aria-hidden='true' />
 							{passwordError}
 							{signUpError}
 						</div>
@@ -223,11 +214,7 @@ const Register = () => {
 						<></>
 					)}
 					<div>
-						<button
-							id='registerBtn'
-							type='submit'
-							className='btn-primary w-full'
-						>
+						<button id='registerBtn' type='submit' className='btn-primary w-full'>
 							Create your Iha Account
 						</button>
 					</div>
@@ -235,9 +222,7 @@ const Register = () => {
 					<div>
 						<div className='flex mb-6'>
 							<hr className='w-2/6 my-auto border-gray-300' />
-							<h3 className='w-4/6 text-center'>
-								Already a User?
-							</h3>
+							<h3 className='w-4/6 text-center'>Already a User?</h3>
 							<hr className='w-2/6 my-auto border-gray-300' />
 						</div>
 						<a className='btn-secondary' href='./signin'>

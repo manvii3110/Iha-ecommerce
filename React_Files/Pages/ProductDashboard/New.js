@@ -21,6 +21,12 @@ export default function New() {
 	}
 	const csrftoken = getCookie("csrftoken");
 
+	let csrfcsrfmiddlewaretoken = "";
+	useEffect(() => {
+		csrfcsrfmiddlewaretoken = document.querySelector("csrfcsrfmiddlewaretoken").value;
+		document.querySelector("csrfcsrfmiddlewaretoken").remove();
+	}, []);
+
 	let formData = new FormData(); // This will store important data send to server
 	let submitBtnData = ""; // This will store restore state for sign in button
 
@@ -40,10 +46,7 @@ export default function New() {
 		document.querySelectorAll("#CreateProductForm select").forEach((e) => {
 			formData.append(e.name, e.value);
 		});
-		formData.append(
-			"csrfmiddlewaretoken",
-			document.querySelector('input[name="csrfmiddlewaretoken"]').value,
-		);
+		formData.append("csrfmiddlewaretoken", csrfcsrfmiddlewaretoken);
 		// Appending images
 		for (let i in document.querySelector('#CreateProductForm input[name="images"]').files) {
 			formData.append(
@@ -88,10 +91,10 @@ export default function New() {
 				 */
 				resetSubmitBtn();
 				console.log(data);
-				// if (data.error) {
-				// } else {
-				// 	location.replace("/dashboard");
-				// }
+				if (data.error) {
+				} else {
+					location.replace("/dashboard/products/");
+				}
 			})
 			.catch((e) => {
 				resetSubmitBtn();

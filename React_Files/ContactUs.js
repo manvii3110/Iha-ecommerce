@@ -26,6 +26,12 @@ const ContactUs = () => {
 	}
 	const csrftoken = getCookie("csrftoken");
 
+	let csrfcsrfmiddlewaretoken = "";
+	useEffect(() => {
+		csrfcsrfmiddlewaretoken = document.querySelector("csrfcsrfmiddlewaretoken").value;
+		document.querySelector("csrfcsrfmiddlewaretoken").remove();
+	}, []);
+
 	const inputClass =
 		"appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm";
 
@@ -56,10 +62,7 @@ const ContactUs = () => {
 			formData.append(e.name, e.value);
 		});
 		formData.append("message", document.querySelector("section textarea").value);
-		formData.append(
-			"csrfmiddlewaretoken",
-			document.querySelector('input[name="csrfmiddlewaretoken"]').value,
-		);
+		formData.append("csrfmiddlewaretoken", csrfcsrfmiddlewaretoken);
 	};
 
 	const sendEnquiry = () => {

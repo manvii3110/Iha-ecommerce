@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { LockClosedIcon } from "@heroicons/react/solid";
 import { BrandLogoCircle } from "./Components/BrandLogo";
@@ -24,6 +24,12 @@ const SignInForm = () => {
 	}
 	const csrftoken = getCookie("csrftoken");
 
+	let csrfcsrfmiddlewaretoken = "";
+	useEffect(() => {
+		csrfcsrfmiddlewaretoken = document.querySelector("csrfcsrfmiddlewaretoken").value;
+		document.querySelector("csrfcsrfmiddlewaretoken").remove();
+	}, []);
+
 	let formData = {}; // This will store important data send to server
 	let signBtnData; // This will store restore state for sign in button
 
@@ -32,6 +38,7 @@ const SignInForm = () => {
 		document.querySelectorAll("#SignInForm input").forEach((e) => {
 			formData[e.name] = e.value;
 		});
+		formData["csrfcsrfmiddlewaretoken"] = csrfcsrfmiddlewaretoken;
 
 		// Changing singinbtn state to loading
 		const signBtn = document.querySelector('#SignInForm button[type="submit"]');
