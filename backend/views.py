@@ -34,7 +34,6 @@ from django.http import JsonResponse
 
 
 @requires_csrf_token
-@csrf_protect
 def signIn(request):
     if request.method == "POST":
 
