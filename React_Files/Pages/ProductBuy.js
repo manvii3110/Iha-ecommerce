@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState, lazy } from "react";
 import { useParams } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import Footer from "../Components/Footer";
+
+import Loading from "../Components/Loading";
+
+const RecentlyAddedProducts = lazy(() => import("../Components/Product/ProductListing"));
 
 export default function ProductBuy() {
 	let { id } = useParams();
@@ -19,7 +22,7 @@ export default function ProductBuy() {
 	}, []);
 	return data !== [] ? (
 		<>
-			<div className='flex flex-row content-center' key={data.id}>
+			<div className='flex flex-row content-center min-h-screen' key={data.id}>
 				<div className='flex flex-col ml-16 mb-3 mt-20'>
 					{data["images"] &&
 						data["images"].map((e, i) => (
@@ -91,7 +94,9 @@ export default function ProductBuy() {
 					</div>
 				</div>
 			</div>
-			<Footer />
+			<Suspense fallback={<Loading />}>
+				<RecentlyAddedProducts />
+			</Suspense>
 		</>
 	) : (
 		<div>Product id is{id}</div>

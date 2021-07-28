@@ -19,7 +19,7 @@ const Blocked = lazy(() => import("./Pages/ProductDashboard/Blocked"));
 export default function ProductDashboard() {
 	const navLinks = [
 		{ title: "Overview", link: "/dashboard/products/", component: <Overview /> },
-		{ title: "Listings", link: "/dashboard/products/listings", component: <Listings /> },
+		{ title: "Active", link: "/dashboard/products/listings", component: <Listings /> },
 		{ title: "Blocked", link: "/dashboard/products/blocked", component: <Blocked /> },
 	];
 
