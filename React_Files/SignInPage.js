@@ -25,8 +25,6 @@ const SignInForm = () => {
 	const csrftoken = getCookie("csrftoken");
 
 	const csrfmiddlewaretoken = document.querySelector("input[name='csrfmiddlewaretoken']").value;
-	document.querySelector("input[name='csrfmiddlewaretoken']").remove();
-	console.log(csrfmiddlewaretoken);
 
 	let formData = {}; // This will store important data send to server
 	let signBtnData; // This will store restore state for sign in button
@@ -80,7 +78,7 @@ const SignInForm = () => {
 					setSignInError(data.error);
 					setInputBorderClass("border-red-300 bg-red-50");
 				} else {
-					location.replace("./");
+					location.replace("/");
 				}
 			})
 			.catch((e) => {

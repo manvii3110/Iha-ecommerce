@@ -23,8 +23,6 @@ const Register = () => {
 	const csrftoken = getCookie("csrftoken");
 
 	const csrfmiddlewaretoken = document.querySelector("input[name='csrfmiddlewaretoken']").value;
-	document.querySelector("input[name='csrfmiddlewaretoken']").remove();
-	console.log(csrfmiddlewaretoken);
 
 	let formData = {}; // This will store important data send to server
 	let registerBtnData = ""; // This will store restore state for sign in button
