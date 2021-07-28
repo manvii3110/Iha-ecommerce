@@ -68,7 +68,7 @@ const SignInForm = () => {
 		fetch("/api/account/signin/", {
 			method: "POST",
 			body: JSON.stringify(formData),
-			headers: { "X-CSRFToken": csrftoken },
+			headers: { "X-CSRFToken": csrfmiddlewaretoken },
 		})
 			.then((r) => r.json())
 			.then((data) => {
