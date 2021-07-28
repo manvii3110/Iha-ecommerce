@@ -24,12 +24,10 @@ const SignInForm = () => {
 	}
 	const csrftoken = getCookie("csrftoken");
 
-	let csrfcsrfmiddlewaretoken = "";
+	let csrfmiddlewaretoken = "";
 	useEffect(() => {
-		csrfcsrfmiddlewaretoken = document.querySelector(
-			"input[name='csrfcsrfmiddlewaretoken']",
-		).value;
-		document.querySelector("csrfcsrfmiddlewaretoken").remove();
+		csrfmiddlewaretoken = document.querySelector("input[name='csrfmiddlewaretoken']").value;
+		document.querySelector("csrfmiddlewaretoken").remove();
 	}, []);
 
 	let formData = {}; // This will store important data send to server
@@ -40,7 +38,7 @@ const SignInForm = () => {
 		document.querySelectorAll("#SignInForm input").forEach((e) => {
 			formData[e.name] = e.value;
 		});
-		formData["csrfcsrfmiddlewaretoken"] = csrfcsrfmiddlewaretoken;
+		formData["csrfmiddlewaretoken"] = csrfmiddlewaretoken;
 
 		// Changing singinbtn state to loading
 		const signBtn = document.querySelector('#SignInForm button[type="submit"]');

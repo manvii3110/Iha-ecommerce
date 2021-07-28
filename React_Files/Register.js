@@ -22,12 +22,10 @@ const Register = () => {
 	}
 	const csrftoken = getCookie("csrftoken");
 
-	let csrfcsrfmiddlewaretoken = "";
+	let csrfmiddlewaretoken = "";
 	useEffect(() => {
-		csrfcsrfmiddlewaretoken = document.querySelector(
-			"input[name='csrfcsrfmiddlewaretoken']",
-		).value;
-		document.querySelector("csrfcsrfmiddlewaretoken").remove();
+		csrfmiddlewaretoken = document.querySelector("input[name='csrfmiddlewaretoken']").value;
+		document.querySelector("csrfmiddlewaretoken").remove();
 	}, []);
 
 	let formData = {}; // This will store important data send to server
@@ -38,7 +36,7 @@ const Register = () => {
 		document.querySelectorAll("#SignUpForm input").forEach((e) => {
 			formData[e.name] = e.value;
 		});
-		formData["csrfcsrfmiddlewaretoken"] = csrfcsrfmiddlewaretoken;
+		formData["csrfmiddlewaretoken"] = csrfmiddlewaretoken;
 
 		// Changing singinbtn state to loading
 		const registerBtn = document.querySelector("#registerBtn");

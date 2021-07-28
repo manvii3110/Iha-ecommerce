@@ -26,12 +26,10 @@ const ContactUs = () => {
 	}
 	const csrftoken = getCookie("csrftoken");
 
-	let csrfcsrfmiddlewaretoken = "";
+	let csrfmiddlewaretoken = "";
 	useEffect(() => {
-		csrfcsrfmiddlewaretoken = document.querySelector(
-			"input[name='csrfcsrfmiddlewaretoken']",
-		).value;
-		document.querySelector("csrfcsrfmiddlewaretoken").remove();
+		csrfmiddlewaretoken = document.querySelector("input[name='csrfmiddlewaretoken']").value;
+		document.querySelector("csrfmiddlewaretoken").remove();
 	}, []);
 
 	const inputClass =
@@ -64,7 +62,7 @@ const ContactUs = () => {
 			formData.append(e.name, e.value);
 		});
 		formData.append("message", document.querySelector("section textarea").value);
-		formData.append("csrfmiddlewaretoken", csrfcsrfmiddlewaretoken);
+		formData.append("csrfmiddlewaretoken", csrfmiddlewaretoken);
 	};
 
 	const sendEnquiry = () => {

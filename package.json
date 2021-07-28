@@ -10,7 +10,9 @@
 		"debug": "python manage.py shell",
 		"migrate": "python manage.py makemigrations && python manage.py migrate",
 		"build": "webpack --mode production --config webpack.config.prod.js",
-		"dev": "webpack --watch --mode development"
+		"dev": "webpack --watch --mode development",
+		"dev1": "webpack --mode development"
+	
 	},
 	"dependencies": {
 		"@headlessui/react": "^1.3.0",

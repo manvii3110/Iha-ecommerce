@@ -21,12 +21,10 @@ export default function New() {
 	}
 	const csrftoken = getCookie("csrftoken");
 
-	let csrfcsrfmiddlewaretoken = "";
+	let csrfmiddlewaretoken = "";
 	useEffect(() => {
-		csrfcsrfmiddlewaretoken = document.querySelector(
-			"input[name='csrfcsrfmiddlewaretoken']",
-		).value;
-		document.querySelector("csrfcsrfmiddlewaretoken").remove();
+		csrfmiddlewaretoken = document.querySelector("input[name='csrfmiddlewaretoken']").value;
+		document.querySelector("csrfmiddlewaretoken").remove();
 	}, []);
 
 	let formData = new FormData(); // This will store important data send to server
@@ -48,7 +46,7 @@ export default function New() {
 		document.querySelectorAll("#CreateProductForm select").forEach((e) => {
 			formData.append(e.name, e.value);
 		});
-		formData.append("csrfmiddlewaretoken", csrfcsrfmiddlewaretoken);
+		formData.append("csrfmiddlewaretoken", csrfmiddlewaretoken);
 		// Appending images
 		for (let i in document.querySelector('#CreateProductForm input[name="images"]').files) {
 			formData.append(
