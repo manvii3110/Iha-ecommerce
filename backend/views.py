@@ -243,12 +243,30 @@ def productApi(request, pk=None):
 def myProductsAPI(request):
     if request.user.is_authenticated:
         # This will send recently added products
-        products = request.user.products.all().order_by("-created")[:15]
+        products = request.user.products.filter(block=False).order_by("-created")[:15]
         data = []
         for product in products:
             p = product.serialize()
             p["images"] = [i.serialize() for i in product.images.all()]
             p["views"] = product.views.all().count()
+            data.append(p)
+        return JsonResponse({"data":data})
+
+    # User will not be allowed if they have not logged into the website
+    else:
+        return JsonResponse("Forbidden", status=403, safe=False)
+
+
+def myProductsBlockedAPI(request):
+    if request.user.is_authenticated:
+        # This will send recently added products
+        products = request.user.products.filter(block=True).order_by("-created")[:15]
+        data = []
+        for product in products:
+            p = product.serialize()
+            p["images"] = [i.serialize() for i in product.images.all()]
+            p["views"] = product.views.all().count()
+            p["block_reason"] = product.block_reason
             data.append(p)
         return JsonResponse({"data":data})
 

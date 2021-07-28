@@ -5,7 +5,15 @@ class UserAdminView(admin.ModelAdmin):
     list_display= ('id','first_name', 'last_name', 'email')
 
 admin.site.register(User, UserAdminView)
-admin.site.register(Product)
+
+
+class ProductAdminView(admin.ModelAdmin):
+    list_display= ('id','owner', 'productName','category', 'price','created')
+    list_filter = ('category', 'created')
+
+admin.site.register(Product, ProductAdminView)
+
+
 admin.site.register(ProductImage)
 
 

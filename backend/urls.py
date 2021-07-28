@@ -24,6 +24,7 @@ urlpatterns = [
     path('api/product/categories/',views.prodcutCategoriesAPI),
     path('api/product/<int:pk>/',views.productApi),
     path('api/product/myProducts/', views.myProductsAPI),
+    path('api/product/myProducts/blocked/', views.myProductsBlockedAPI),
     path('api/product/myViews/', views.myProductViewsAPI),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # This will send user Profile from media Folder

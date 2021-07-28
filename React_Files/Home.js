@@ -20,26 +20,25 @@ const Home = () => {
 				<Header />
 			</Suspense>
 			<BrowserRouter>
-				<Suspense fallback={<Loading />}>
-					<Route exact path='/home'>
-						<Suspense fallback={<Loading />}>
-							<div className='max-w-screen-2xl mx-auto p-2 sm:p-4'>
-								<Gallery />
-							</div>
-						</Suspense>
+				<Route exact path='/home'>
+					<Suspense fallback={<Loading />}>
+						<div className='max-w-screen-2xl mx-auto p-2 sm:p-4'>
+							<Gallery />
+						</div>
+					</Suspense>
 
-						<Suspense fallback={<Loading />}>
-							<RecentlyAddedProducts />
-						</Suspense>
+					<Suspense fallback={<Loading />}>
+						<RecentlyAddedProducts />
+					</Suspense>
+				</Route>
 
-						<Suspense fallback={<Loading />}>
-							<Footer />
-						</Suspense>
-					</Route>
-
-					<Route path='/product/:id'>
+				<Route path='/product/:id'>
+					<Suspense fallback={<Loading />}>
 						<ProductBuy />
-					</Route>
+					</Suspense>
+				</Route>
+				<Suspense fallback={<Loading />}>
+					<Footer />
 				</Suspense>
 			</BrowserRouter>
 		</>

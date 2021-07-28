@@ -15,7 +15,7 @@ export default function Listings() {
 	}, []);
 	return (
 		<div className='bg-white rounded-lg border overflow-hidden'>
-			<div className='px-3 py-2 text-xl'>Active Listings</div>
+			<div className='px-3 py-2 text-xl  font-medium'>Active Listings</div>
 
 			<table className='table-fixed bg-white'>
 				<thead>

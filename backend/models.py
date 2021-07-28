@@ -8,7 +8,7 @@ class User(AbstractUser):
     userImage = models.ImageField(upload_to='userImage/',default='../static/frontend/svg/user.svg')
     
     def __str__(self):
-        return f"{self.username} - {self.email}"
+        return f"{self.email}"
 
     def serialize(self):
         return {
@@ -105,7 +105,8 @@ class View(models.Model):
 
     def serialize(self):
         return {
-            "created": self.created.strftime("%b %d %Y, %I:%M %p")
+            "date": self.created.strftime("%b %d %Y"),
+            "time": self.created.strftime("%I:%M %p")
         }
         
 
