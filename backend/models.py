@@ -8,7 +8,7 @@ class User(AbstractUser):
     userImage = models.ImageField(upload_to='userImage/',default='../static/frontend/svg/user.svg')
     
     def __str__(self):
-        return f"{self.username} - {self.email}"
+        return f"{self.email}"
 
     def serialize(self):
         return {
