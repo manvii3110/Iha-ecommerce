@@ -8,7 +8,7 @@ class User(AbstractUser):
     userImage = models.ImageField(upload_to='userImage/',default='../static/frontend/svg/user.svg')
     
     def __str__(self):
-        return f"{self.username} - {self.email}"
+        return f"{self.email}"
 
     def serialize(self):
         return {
@@ -93,3 +93,32 @@ class ProductImage(models.Model):
             "url": self.image.url
         }
 
+
+class View(models.Model):
+    id =  models.AutoField(primary_key=True)
+    viewer = models.ForeignKey(
+        User, on_delete=models.PROTECT, related_name="myViews", null=True)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE,related_name="views", null=False)
+
+    # Automatic Time Stamp    
+    created = models.DateTimeField(auto_now_add=True)
+
+    def serialize(self):
+        return {
+            "created": self.created.strftime("%b %d %Y, %I:%M %p")
+        }
+        
+
+class Enquiry(models.Model):
+    id =  models.AutoField(primary_key=True)
+    name = models.CharField(max_length=128, null=False)
+    email = models.EmailField(null=False)
+    message = models.TextField(null=True)
+
+    # Automatic Time Stamp    
+    created = models.DateTimeField(auto_now_add=True)
+
+    read = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name

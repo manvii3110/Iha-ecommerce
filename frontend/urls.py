@@ -13,15 +13,18 @@ urlpatterns = [
     re_path(r'^favicon\.ico$', favicon_view),
 
     path('', views.index, name='index'),
-    path('home', views.home, name='home'),
-    path('signin', views.signInView, name='signInView'),
-    path('register', views.registerView),
+    path('home/', views.home, name='home'),
+    path('contactus/', views.contactUs),
 
+    path('signin/', views.signInView, name='signInView'),
+    path('register/', views.registerView),
 
-    path('dashboard',views.ProductDashboard),
-    path('dashboard/sell', views.ProductDashboard),
-    path('dashboard/products', views.ProductDashboard),
-    path('dashboard/orders', views.ProductDashboard),
+    path('product/<int:id>/', views.productView),
 
+    path('dashboard/',views.Dashboard),
+    path('dashboard/products/', views.ProductDashboard),
+    path('dashboard/products/<str:pageName>/', views.ProductDashboard),
+
+    # These are temporary urls
     path('cards', views.cards),
 ]

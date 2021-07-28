@@ -23,6 +23,9 @@ def loadFile(request, filename = 'App'):
 def home(request):
     return loadFile(request, filename='Home')
 
+def productView(request, id):
+    return loadFile(request, filename='Home')
+
 def index(request):
     return HttpResponseRedirect(reverse('frontend:home'))
 
@@ -38,8 +41,19 @@ def registerView(request):
 
 
 @login_required
-def ProductDashboard(request):
+def Dashboard(request):
+    return loadFile(request, filename='MainDashboard')
+
+
+@login_required
+def ProductDashboard(request, pageName=None):
     return loadFile(request, filename='ProductDashboard')
 
+
+def contactUs(request):
+    return loadFile(request, filename="ContactUs")
+
+
+# These are temporary urls 
 def cards(request):
     return loadFile(request, filename='Cards')

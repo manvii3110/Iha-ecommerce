@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_protect, requires_csrf_token, ensure_csrf_cookie
 
 # For user creation
-from .models import Product, ProductImage, User
+from .models import Enquiry, Product, ProductImage, User, View
 
 
 # For check_authentication_status
@@ -21,6 +21,7 @@ from django.http import JsonResponse
                 Section Index
     1.  Sign In and Out functionality, with json
     2.  Product CRUD API
+    3.  Contact Us Api
 """
 
 
@@ -151,8 +152,44 @@ def registerUserApi(request):
 # CAUTION: This variable is related to storing products in database
 #          Editing this may affect in crash of the store
 categories =[
-    ('e', 'electronic'),
-    ('f', 'furniture'),
+    ('ma', 'mobile accessories'),
+    ('la', 'laptop accessories'),
+    ('bty', 'beauty'),
+    ('clo', 'clothing'),
+    ('dec', 'home decoration'),
+    ('ele', 'electronics'),
+    ('fur', 'furniture'),
+    ('gro', 'grocery and gourmet'),
+    ('bp', 'baby products'),
+    ('mus', 'musical instruments'),   
+    ('jwl', 'jewelry'),
+    ('cro', 'crockery'),
+    ('cln', 'cleaning products'),
+    ('m', 'mobiles'),
+    ('n', 'novel'),
+    ('pet', 'pet supplies'),
+    ('sg', 'sport goods'),
+    ('spe','spectacles'),
+    ('tab', 'tablets'),
+    ('ft','footwear'),
+    ('sta', 'stationary'),
+    ('w', 'watches'),
+    ('fod', 'eatables'),
+    ('toy', 'children toys'),
+    ('t', 'tools'),
+    ('h','health supplements'),
+    ('med','medicine'),
+    ('gft', 'gift cards'),
+    ('ind', 'indian heritage'),
+    ('cra', 'handicrafts'),
+    ('spk', 'speakers'),
+    ('v','vedio games'),
+    ('lug', 'luggage'),
+    ('ess', 'daily essentials'),
+    ('cam', 'cameras'),
+    ('sft', 'softwares'),
+    ('b', 'e-books'),
+    ('car', 'car and motorbikes'),
     ('o', 'other')
 ]
 
@@ -183,14 +220,94 @@ def productApi(request, pk=None):
     # This is get method
     else:
         if pk:
-            p = Product.objects.get(id=pk).serialize()
-            p["images"] = [i.serialize() for i in Product.objects.get(id=pk).images.all()]
-            return JsonResponse({"data":p}, status=201)
+            try:
+                product = Product.objects.get(id=pk)
+            except: 
+                return JsonResponse("Product Not Found", status=404, safe=False)
+
+            # Counting Views
+            View.objects.create(viewer= request.user if request.user.is_authenticated else None, product=product)
+
+            d = product.serialize()
+            d["description"] = product.description
+            d["images"] = [i.serialize() for i in product.images.all()]
+            return JsonResponse({"data":d}, status=201)
         else:
-            products = Product.objects.all()
+            # This will send recently added products
+            products = Product.objects.all().order_by("-created")[:15]
             data = []
             for product in products:
                 p = product.serialize()
                 p["images"] = [i.serialize() for i in product.images.all()]
                 data.append(p)
             return JsonResponse({"data":data})
+
+
+def myProductsAPI(request):
+    if request.user.is_authenticated:
+        # This will send recently added products
+        products = request.user.products.filter(block=False).order_by("-created")[:15]
+        data = []
+        for product in products:
+            p = product.serialize()
+            p["images"] = [i.serialize() for i in product.images.all()]
+            p["views"] = product.views.all().count()
+            data.append(p)
+        return JsonResponse({"data":data})
+
+    # User will not be allowed if they have not logged into the website
+    else:
+        return JsonResponse("Forbidden", status=403, safe=False)
+
+
+def myProductsBlockedAPI(request):
+    if request.user.is_authenticated:
+        # This will send recently added products
+        products = request.user.products.filter(block=True).order_by("-created")[:15]
+        data = []
+        for product in products:
+            p = product.serialize()
+            p["images"] = [i.serialize() for i in product.images.all()]
+            p["views"] = product.views.all().count()
+            p["block_reason"] = product.block_reason
+            data.append(p)
+        return JsonResponse({"data":data})
+
+    # User will not be allowed if they have not logged into the website
+    else:
+        return JsonResponse("Forbidden", status=403, safe=False)
+
+
+def myProductViewsAPI(request):
+    if request.user.is_authenticated:
+        products = request.user.products.all().order_by("-created")[:15]
+        data = []
+        for product in products:
+            p = {"views": [v.serialize() for v in product.views.all()]}
+            p['productName'] = product.productName
+            p['productId'] = product.id
+            data.append(p)
+
+        return JsonResponse({"data":data})
+
+        # User will not be allowed if they have not logged into the website
+    else:
+        return JsonResponse("Forbidden", status=403, safe=False)
+
+
+""" 
+    3. Contact Us Api 
+"""
+ 
+def ContactUsAPI(request):
+    if request.method == "POST":
+        name = request.POST["name"]
+        email = request.POST["email"]
+        message = request.POST["message"]
+
+        Enquiry.objects.create(name=name, email=email, message=message)
+
+        return JsonResponse({"message": "We will contact you soon"}, status=202)
+
+    else:
+        return JsonResponse("Method not allowed", status=405, safe=False)

@@ -19,6 +19,8 @@ module.exports = {
 			backdropBlur: ["hover"],
 			borderWidth: ["hover"],
 			backdropFilter: ["hover"],
+			ringWidth: ["hover"],
+			ringColor: ["hover"],
 		},
 	},
 	plugins: [],

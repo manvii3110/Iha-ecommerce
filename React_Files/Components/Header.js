@@ -2,13 +2,11 @@ import React, { Suspense, lazy, Fragment } from "react";
 
 import { Popover, Transition } from "@headlessui/react";
 import {
-	BriefcaseIcon,
 	HomeIcon,
 	MenuIcon,
 	PhoneIcon,
 	PresentationChartLineIcon,
 	ShoppingBagIcon,
-	TruckIcon,
 	XIcon,
 } from "@heroicons/react/outline";
 import { BrandLogoImg } from "./BrandLogo";
@@ -34,12 +32,6 @@ const pages = [
 		description: "Manage Your Order and Favorite products",
 		href: "/dashboard",
 		icon: PresentationChartLineIcon,
-	},
-	{
-		name: "Sell",
-		description: "Start Selling on Iha Ecommerce",
-		href: "/dashboard/sell",
-		icon: TruckIcon,
 	},
 	{
 		name: "Contact us",
