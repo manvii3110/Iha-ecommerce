@@ -28,7 +28,9 @@ const ContactUs = () => {
 
 	let csrfcsrfmiddlewaretoken = "";
 	useEffect(() => {
-		csrfcsrfmiddlewaretoken = document.querySelector("csrfcsrfmiddlewaretoken").value;
+		csrfcsrfmiddlewaretoken = document.querySelector(
+			"input[name='csrfcsrfmiddlewaretoken']",
+		).value;
 		document.querySelector("csrfcsrfmiddlewaretoken").remove();
 	}, []);
 

@@ -23,7 +23,9 @@ export default function New() {
 
 	let csrfcsrfmiddlewaretoken = "";
 	useEffect(() => {
-		csrfcsrfmiddlewaretoken = document.querySelector("csrfcsrfmiddlewaretoken").value;
+		csrfcsrfmiddlewaretoken = document.querySelector(
+			"input[name='csrfcsrfmiddlewaretoken']",
+		).value;
 		document.querySelector("csrfcsrfmiddlewaretoken").remove();
 	}, []);
 
