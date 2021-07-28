@@ -5,6 +5,9 @@ import { BrandLogoCircle } from "./Components/BrandLogo";
 
 require("./static/index.scss");
 
+const csrfmiddlewaretoken = document.querySelector("input[name='csrfmiddlewaretoken']").value;
+document.querySelector("csrfmiddlewaretoken").remove();
+
 const SignInForm = () => {
 	// This will fetch csrf token from request headers
 	function getCookie(name) {
@@ -23,12 +26,6 @@ const SignInForm = () => {
 		return cookieValue;
 	}
 	const csrftoken = getCookie("csrftoken");
-
-	let csrfmiddlewaretoken = "";
-	useEffect(() => {
-		csrfmiddlewaretoken = document.querySelector("input[name='csrfmiddlewaretoken']").value;
-		document.querySelector("csrfmiddlewaretoken").remove();
-	}, []);
 
 	let formData = {}; // This will store important data send to server
 	let signBtnData; // This will store restore state for sign in button
