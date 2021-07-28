@@ -6,7 +6,11 @@ import { BrandLogoCircle } from "./Components/BrandLogo";
 require("./static/index.scss");
 
 const csrfmiddlewaretoken = document.querySelector("input[name='csrfmiddlewaretoken']").value;
-document.querySelector("csrfmiddlewaretoken").remove();
+try {
+	document.querySelector("csrfmiddlewaretoken").remove();
+} catch (e) {
+	console.log(e);
+}
 
 const SignInForm = () => {
 	// This will fetch csrf token from request headers
