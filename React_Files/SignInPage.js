@@ -24,8 +24,6 @@ const SignInForm = () => {
 	}
 	const csrftoken = getCookie("csrftoken");
 
-	const csrfmiddlewaretoken = document.querySelector("input[name='csrfmiddlewaretoken']").value;
-
 	let formData = {}; // This will store important data send to server
 	let signBtnData; // This will store restore state for sign in button
 
@@ -34,7 +32,6 @@ const SignInForm = () => {
 		document.querySelectorAll("#SignInForm input").forEach((e) => {
 			formData[e.name] = e.value;
 		});
-		formData["csrfmiddlewaretoken"] = csrfmiddlewaretoken;
 
 		// Changing singinbtn state to loading
 		const signBtn = document.querySelector('#SignInForm button[type="submit"]');
@@ -62,8 +59,9 @@ const SignInForm = () => {
 		// fetching data from server
 		fetch("/api/account/signin/", {
 			method: "POST",
+			mode: "same-origin",
 			body: JSON.stringify(formData),
-			headers: { "X-CSRFToken": csrfmiddlewaretoken },
+			headers: { "X-CSRFToken": document.querySelector("[name=csrfmiddlewaretoken]").value },
 		})
 			.then((r) => r.json())
 			.then((data) => {
