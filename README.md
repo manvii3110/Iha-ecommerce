@@ -9,6 +9,7 @@ This is the Iha's sub branch web App which is currently in development phase
     ```
     .\> pip install django
     ```
+-   Node js
 
 ## Usage
 
